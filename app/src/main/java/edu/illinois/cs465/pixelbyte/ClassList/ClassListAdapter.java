@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import edu.illinois.cs465.pixelbyte.R;
+import edu.illinois.cs465.pixelbyte.categoryCreation.TemplateCategory;
 
 class ListElem {
     TextView className;
@@ -32,38 +33,39 @@ class Class {
 }
 
 public class ClassListAdapter extends ArrayAdapter<String> {
-    private int layout;
-    private List<String> objs; //TODO: later figure out how to pass actual class objects in here
-    public ClassListAdapter(Context context, int resource, List<String> objects) {
-        super(context, resource, objects);
-        objs = objects;
-        layout = resource;
+    public ClassListAdapter(Context context, List<String> objects) {
+        super(context, 0, objects);
+    }
+
+    // Return an integer representing the type by fetching the enum type ordinal
+    @Override
+    public int getItemViewType(int position) {
+        return 0;
+    }
+
+    // Total number of types is the number of enum values
+    @Override
+    public int getViewTypeCount() {
+        return 1;
+    }
+
+    private View getInflatedLayoutForType(int type) {
+        return LayoutInflater.from(getContext()).inflate(R.layout.list_elem, null);
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
-        ListElem mainElem = null;
-        if(convertView == null) {
-            LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(layout, parent, false);
+    public View getView(int position, View convertView, ViewGroup parent) {
+        String className = getItem(position);
 
-            ListElem tempElem = new ListElem();
-            tempElem.className = (TextView) convertView.findViewById(R.id.classname);
-            tempElem.letterGrade = (TextView) convertView.findViewById(R.id.lettergrade);
-            tempElem.numberGrade = (TextView) convertView.findViewById(R.id.numgrade);
-            tempElem.getHelp = (Button) convertView.findViewById(R.id.gethelp);
-            convertView.setTag(tempElem);
+        if (convertView == null) {
+            int type = getItemViewType(position);
+            convertView = getInflatedLayoutForType(type);
         }
-        mainElem = (ListElem) convertView.getTag();
 
-        mainElem.getHelp.setOnClickListener(v -> {
-            //TODO: go to gethelp page for the class at getItem(position)
-        });
-
-        mainElem.className.setText(getItem(position));
-        //mainViewholder.letterGrade.setText(getItem(position));
-        //mainViewholder.numberGrade.setText(getItem(position));
-
+        TextView classLabel = (TextView) convertView.findViewById(R.id.classname);
+        if (classLabel != null && className != null && className.length() > 0) {
+            classLabel.setText(className);
+        }
 
         return convertView;
     }
