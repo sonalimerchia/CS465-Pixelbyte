@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_gravity="fill_horizontal"
+    android:paddingVertical="50dp"
+    android:paddingHorizontal="20dp"
+    tools:context=".CreateClassActivity">
+    <Button
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textAllCaps="false"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/add_course_title"
+            android:gravity="center"
+            android:text="@string/back"
+            android:textAllCaps="false"
+            android:textSize="10sp" />
+        <TextView
+            android:id="@+id/add_course_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:textSize="48sp"
+            android:text="@string/activity_title_add_course"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/customborder">
+
+        <TextView
+            android:id="@+id/recommended_templates_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rec_templates_label"
+            android:textSize="25sp"
+            android:layout_marginBottom="10dp"/>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/new_template_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/make_template_button_label"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:layout_marginHorizontal="50dp"
+        android:padding="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/determinateBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:progress="25"
+            android:layout_gravity="bottom"
+            tools:ignore="NestedWeights" />
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:text="@string/next"
+            android:textAllCaps="false"
+            android:layout_marginStart="50dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"/>
+
+    </LinearLayout>
+</LinearLayout>
