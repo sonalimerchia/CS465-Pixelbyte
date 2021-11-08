@@ -33,19 +33,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         openDialogButton = (Button) findViewById((R.id.add_category));
         openDialogButton.setOnClickListener(this);
-    }
-
-    private void openDialog(BottomSheetCodes code, String bottomSheetName) {
-        switch (code) {
-            case NewTemplatePreview:
-                openDialog = new CreateNewTemplate();
-                break;
-            case AddCategory:
-                openDialog = new AddCategory();
-                break;
-        }
-
-        openDialog.show(getSupportFragmentManager(), bottomSheetName);
 
         //stuff to grab from other screens TODO: connect it all
         currentSemester = "Spring 2022";
@@ -64,8 +51,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ClassListAdapter adapter = new ClassListAdapter(this, R.layout.list_elem, classes);
             classList.setAdapter(adapter);
         }
+    }
+
+    private void openDialog(BottomSheetCodes code, String bottomSheetName) {
+        switch (code) {
+            case NewTemplatePreview:
+                openDialog = new CreateNewTemplate();
+                break;
+            case AddCategory:
+                openDialog = new AddCategory();
+                break;
+        }
+
+        openDialog.show(getSupportFragmentManager(), bottomSheetName);
+
+
+    }
 
         //setup buttons
+        /*
         Button addBtn = (Button)findViewById(R.id.addClassButton);
         Button profileBtn = (Button)findViewById(R.id.profileButton);
 
@@ -74,8 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, profileActivity.class));
             }
-        });
-    }
+*/
 
     public void onClick(View v) {
         if (v.getId() == R.id.open_template) {
