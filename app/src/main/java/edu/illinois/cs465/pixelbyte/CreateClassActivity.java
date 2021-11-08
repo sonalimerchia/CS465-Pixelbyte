@@ -12,9 +12,17 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+/* This is the first activity page to create a Class Object.
+
+TODO: Return a Class Object on completion. (Keep user input between CreateClass screens).
+ Update names/buttons to match other screens. Navigation.
+ Convert this activity into a Dialog Activity to partially cover Home Screen.
+ */
 public class CreateClassActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
+    /* TODO: Make a toast or something appear on Home Page after a class is successfully created. */
     public static final String CREATE_CLASS_RETURN_MSG = "CREATE_CLASS_RETURN_MSG";
 
+    // Text Views
     private TextView addClassTitle;
     private TextView courseNameLabel;
     private TextView courseColorLabel;
@@ -22,6 +30,7 @@ public class CreateClassActivity extends AppCompatActivity implements AdapterVie
 
     private EditText courseNameInput;
 
+    // Button Views
     private Button redButton;
     private Button greenButton;
     private Button blueButton;
@@ -56,6 +65,8 @@ public class CreateClassActivity extends AppCompatActivity implements AdapterVie
         greenButton = (Button) findViewById(R.id.green_button);
         blueButton = (Button) findViewById(R.id.blue_button);
 
+        //TODO: Custom Color selector button.
+
         redButton.setOnClickListener(this);
         greenButton.setOnClickListener(this);
         blueButton.setOnClickListener(this);
@@ -88,6 +99,7 @@ public class CreateClassActivity extends AppCompatActivity implements AdapterVie
         // Another interface callback
     }
 
+    /* TODO: Button Navigation + theme changing */
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.red_button) {

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Need to convert this activity into a Dialog Activity
+    that partially covers the Home Screen. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,6 +14,7 @@
     android:paddingHorizontal="20dp"
     tools:context=".CreateClassActivity">
 
+    <!-- Cancel Button. Need to place above modal.-->
     <Button
         android:id="@+id/cancel_button"
         android:layout_width="wrap_content"
@@ -18,6 +22,8 @@
         android:gravity="center"
         android:text="@string/cancel"
         android:textAllCaps="false"/>
+
+    <!-- Activity Title -->
     <TextView
         android:id="@+id/add_course_title"
         android:layout_width="wrap_content"
@@ -26,6 +32,7 @@
         android:textSize="48sp"
         android:text="@string/activity_title_add_course"/>
 
+    <!-- User inputs class name here -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,6 +61,8 @@
 
     </LinearLayout>
 
+    <!-- User selects Class's theme color. This should affect how
+    it's color-coded on the Home Screen and View Course screens-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -93,6 +102,8 @@
 
     </LinearLayout>
 
+    <!-- User selects department for class. Spinner is populated by a
+    string-array called "class_departments_array" in strings.xml -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -117,6 +128,7 @@
 
     </LinearLayout>
 
+    <!-- Bottom of the screen contains the Progress Bar and Next Button -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
