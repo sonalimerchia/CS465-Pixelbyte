@@ -21,12 +21,14 @@
             android:gravity="center_vertical"
             android:drawablePadding="10dp"
             android:ellipsize="end"
+
             app:drawableStartCompat="@drawable/ic_cancel_svgrepo_com" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="right"
             android:id="@+id/category_weight"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"

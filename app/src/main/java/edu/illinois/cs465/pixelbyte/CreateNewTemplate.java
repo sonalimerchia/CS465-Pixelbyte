@@ -23,15 +23,18 @@ public class CreateNewTemplate extends BottomSheetDialogFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Set bottom sheet contents
         super.onCreate(savedInstanceState);
-
         View view = inflater.inflate(R.layout.activity_create_new_template, container, false);
 
+        // Create items from sample data
         TemplateCategory[] items = createItems();
 
+        // Create adapter to interpret data
         template = view.findViewById(R.id.template_in_progress);
         CategoryArrayAdapter arr = new CategoryArrayAdapter(view.getContext(), items);
 
+        // Apply adapter to list
         template.setAdapter(arr);
 
         return view;

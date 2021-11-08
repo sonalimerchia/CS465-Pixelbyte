@@ -19,14 +19,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        Intent move = new Intent(this, AddCategory.class);
+//        startActivity(move);
+
+
         openDialogButton = (Button) findViewById(R.id.trigger_open);
         openDialogButton.setOnClickListener(this);
+//
+//        openDialog(BottomSheetCodes.NewTemplatePreview, "New Template");
     }
 
     private void openDialog(BottomSheetCodes code, String bottomSheetName) {
         switch (code) {
             case NewTemplatePreview:
                 openDialog = new CreateNewTemplate();
+                break;
+            case AddCategory:
+                openDialog = new AddCategory();
+                break;
         }
 
         openDialog.show(getSupportFragmentManager(), bottomSheetName);
@@ -34,7 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void onClick(View v) {
         if (v.getId() == R.id.trigger_open) {
-            openDialog(BottomSheetCodes.NewTemplatePreview, "New Template");
+            // Open new template page
+            openDialog(BottomSheetCodes.AddCategory, "Add Category");
         }
     }
 }
