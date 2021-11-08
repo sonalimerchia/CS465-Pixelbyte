@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="app/src/main/res/drawable/ic_add_svgrepo_com.xml" value="0.20462962962962963" />
         <entry key="app/src/main/res/drawable/ic_back_svgrepo_com.xml" value="0.20461538461538462" />
         <entry key="app/src/main/res/drawable/ic_cancel_svgrepo_com.xml" value="0.20461538461538462" />
@@ -24,6 +25,11 @@
         <entry key="app/src/main/res/layout/fragment_new_template_categories_list_dialog.xml" value="0.16134751773049646" />
         <entry key="app/src/main/res/layout/fragment_new_template_categories_list_dialog_item.xml" value="0.16818642350557245" />
         <entry key="app/src/main/res/layout/new_template_layout_dialog.xml" value="0.1638888888888889" />
+=======
+        <entry key="..\:/kylem/cs465/finalProj/CS465-Pixelbyte/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/kylem/cs465/finalProj/CS465-Pixelbyte/app/src/main/res/layout/activity_profile.xml" value="0.4255079006772009" />
+        <entry key="..\:/kylem/cs465/finalProj/CS465-Pixelbyte/app/src/main/res/layout/list_elem.xml" value="0.67" />
+>>>>>>> 0b680cd (created act layout pages)
       </map>
     </option>
   </component>
