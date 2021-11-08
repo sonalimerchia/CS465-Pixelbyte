@@ -53,11 +53,15 @@ public class CategoryArrayAdapter extends ArrayAdapter<TemplateCategory> {
         if (dropLabel != null && category.drops != 0) {
             String result = ""+category.drops+" drop"+(category.drops < 2 ? "" : "s");
             dropLabel.setText(result);
+        } else {
+            dropLabel.setHeight(0);
         }
 
-        if (assignmentLabel != null) {
+        if (assignmentLabel != null && category.assignments != 0) {
             String result = ""+category.assignments+" assignment"+(category.assignments < 2 ? "" : "s");
             assignmentLabel.setText(result);
+        } else {
+            assignmentLabel.setHeight(0);
         }
 
         // Return the completed view to render on screen

@@ -3,12 +3,17 @@ package edu.illinois.cs465.pixelbyte;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
+
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import edu.illinois.cs465.pixelbyte.categoryCreation.CategoryArrayAdapter;
 import edu.illinois.cs465.pixelbyte.categoryCreation.TemplateCategory;
 
-public class CreateNewTemplate extends AppCompatActivity {
+public class CreateNewTemplate extends BottomSheetDialogFragment {
     ListView template;
 
     String[] names = {"Quizzes", "Homework", "Assignments"};
@@ -17,16 +22,19 @@ public class CreateNewTemplate extends AppCompatActivity {
     int[] assignments = {15, 20, 30};
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_new_template);
+
+        View view = inflater.inflate(R.layout.activity_create_new_template, container, false);
 
         TemplateCategory[] items = createItems();
 
-        template = findViewById(R.id.template_in_progress);
-        CategoryArrayAdapter arr = new CategoryArrayAdapter(this, items);
+        template = view.findViewById(R.id.template_in_progress);
+        CategoryArrayAdapter arr = new CategoryArrayAdapter(view.getContext(), items);
 
         template.setAdapter(arr);
+
+        return view;
     }
 
     private TemplateCategory[] createItems() {
