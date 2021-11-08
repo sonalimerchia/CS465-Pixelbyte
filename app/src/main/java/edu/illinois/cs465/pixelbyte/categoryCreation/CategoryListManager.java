@@ -1,14 +1,13 @@
-package edu.illinois.cs465.pixelbyte;
-
-import androidx.appcompat.app.AppCompatActivity;
+package edu.illinois.cs465.pixelbyte.categoryCreation;
 
 import android.os.Bundle;
 import android.widget.ListView;
 
-import edu.illinois.cs465.pixelbyte.categoryCreation.CategoryArrayAdapter;
-import edu.illinois.cs465.pixelbyte.categoryCreation.TemplateCategory;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class CreateNewTemplate extends AppCompatActivity {
+import edu.illinois.cs465.pixelbyte.R;
+
+public class CategoryListManager {
     ListView template;
 
     String[] names = {"Quizzes", "Homework", "Assignments"};
@@ -16,15 +15,13 @@ public class CreateNewTemplate extends AppCompatActivity {
     int[] drops = {2, 3, 0};
     int[] assignments = {15, 20, 30};
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_new_template);
+    protected void onCreate(Bundle savedInstanceState, AppCompatActivity parentActivity) {
+        parentActivity.setContentView(R.layout.activity_create_new_template);
 
         TemplateCategory[] items = createItems();
 
-        template = findViewById(R.id.template_in_progress);
-        CategoryArrayAdapter arr = new CategoryArrayAdapter(this, items);
+        template = parentActivity.findViewById(R.id.template_in_progress);
+        CategoryArrayAdapter arr = new CategoryArrayAdapter(parentActivity, items);
 
         template.setAdapter(arr);
     }

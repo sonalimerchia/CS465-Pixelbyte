@@ -1,4 +1,4 @@
-package edu.illinois.cs465.pixelbyte;
+package edu.illinois.cs465.pixelbyte.categoryCreation;
 
 public class TemplateCategory {
     String name;

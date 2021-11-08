@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+
 public class MainActivity extends AppCompatActivity {
+    BottomSheetDialog openDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
