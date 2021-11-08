@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Pixelbyte</string>
+    <string name="finish">Finish</string>
+    <string name="category">Category</string>
+    <string name="categories">Categories</string>
+    <string name="back">Back</string>
+    <string name="new_template">New Template</string>
+    <string name="add_category">Add Category</string>
+    <string name="delete">Delete</string>
 </resources>
