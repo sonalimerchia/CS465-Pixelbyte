@@ -12,7 +12,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     BottomSheetDialogFragment openDialog;
-    Button openDialogButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +22,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        startActivity(move);
 
 
-        openDialogButton = (Button) findViewById(R.id.trigger_open);
+        Button openDialogButton = (Button) findViewById(R.id.open_template);
+        openDialogButton.setOnClickListener(this);
+
+        openDialogButton = (Button) findViewById((R.id.add_category));
         openDialogButton.setOnClickListener(this);
 //
 //        openDialog(BottomSheetCodes.NewTemplatePreview, "New Template");
@@ -43,8 +45,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void onClick(View v) {
-        if (v.getId() == R.id.trigger_open) {
+        if (v.getId() == R.id.open_template) {
             // Open new template page
+            openDialog(BottomSheetCodes.NewTemplatePreview, "Edit Template");
+        } else if (v.getId() == R.id.add_category) {
+            // Open add category sheet
             openDialog(BottomSheetCodes.AddCategory, "Add Category");
         }
     }
