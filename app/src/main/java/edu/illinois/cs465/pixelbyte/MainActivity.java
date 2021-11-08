@@ -2,7 +2,6 @@ package edu.illinois.cs465.pixelbyte;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,8 +14,6 @@ import java.util.Arrays;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import edu.illinois.cs465.pixelbyte.ClassList.ClassListAdapter;
-import edu.illinois.cs465.pixelbyte.categoryCreation.CategoryArrayAdapter;
-import edu.illinois.cs465.pixelbyte.categoryCreation.TemplateCategory;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     BottomSheetDialogFragment openDialog;
