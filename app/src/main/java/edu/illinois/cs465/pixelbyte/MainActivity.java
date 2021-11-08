@@ -2,33 +2,62 @@ package edu.illinois.cs465.pixelbyte;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 
-import com.google.android.material.bottomsheet.BottomSheetDialog;
+import java.util.ArrayList;
+import java.util.Arrays;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+
+import edu.illinois.cs465.pixelbyte.ClassList.ClassListAdapter;
+import edu.illinois.cs465.pixelbyte.categoryCreation.CategoryArrayAdapter;
+import edu.illinois.cs465.pixelbyte.categoryCreation.TemplateCategory;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     BottomSheetDialogFragment openDialog;
+    private ListView classList;
+    private String currentSemester;
+    private ArrayList<String> classes; //each elem = class name, letter, number
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Intent move = new Intent(this, AddCategory.class);
-//        startActivity(move);
-
-
         Button openDialogButton = (Button) findViewById(R.id.open_template);
         openDialogButton.setOnClickListener(this);
 
         openDialogButton = (Button) findViewById((R.id.add_category));
         openDialogButton.setOnClickListener(this);
-//
-//        openDialog(BottomSheetCodes.NewTemplatePreview, "New Template");
+
+        //stuff to grab from other screens TODO: connect it all
+        currentSemester = "Spring 2022";
+        //classes = new ArrayList<Class>(Arrays.asList(new Class("CS 125", "A", "95.5%")));
+        classes = new ArrayList<String>(Arrays.asList("CS 125", "CS 126", "CS 225"));
+
+        // Create adapter to interpret data
+
+        getSupportActionBar().setTitle(currentSemester);
+
+        //setup listview
+        classList = (ListView) findViewById(R.id.classlist);
+        TextView noClasses = (TextView) this.findViewById(R.id.noclasses);
+
+        if (classes.size() == 0) {
+            noClasses.setVisibility(View.VISIBLE);
+            classList.setVisibility(View.INVISIBLE);
+        } else {
+            classList.setVisibility(View.VISIBLE);
+            noClasses.setVisibility(View.INVISIBLE);
+
+            ClassListAdapter adapter = new ClassListAdapter(this, classes);
+            classList.setAdapter(adapter);
+        }
     }
 
     private void openDialog(BottomSheetCodes code, String bottomSheetName) {
@@ -42,6 +71,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         openDialog.show(getSupportFragmentManager(), bottomSheetName);
+
+
     }
 
     public void onClick(View v) {
