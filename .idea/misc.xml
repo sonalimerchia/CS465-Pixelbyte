@@ -25,6 +25,10 @@
         <entry key="app/src/main/res/layout/fragment_new_template_categories_list_dialog_item.xml" value="0.16818642350557245" />
         <entry key="app/src/main/res/layout/list_elem.xml" value="0.11096014492753623" />
         <entry key="app/src/main/res/layout/new_template_layout_dialog.xml" value="0.1638888888888889" />
+<<<<<<< HEAD
+=======
+        <entry key="app/src/main/res/layout/predictor.xml" value="0.10552536231884058" />
+>>>>>>> 13aeef7 (fix copy-paste bugs)
       </map>
     </option>
   </component>
