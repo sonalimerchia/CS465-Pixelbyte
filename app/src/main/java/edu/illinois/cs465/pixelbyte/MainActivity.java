@@ -29,16 +29,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Button openDialogButton = (Button) findViewById(R.id.open_template);
-//        openDialogButton.setOnClickListener(this);
-//
-//        openDialogButton = (Button) findViewById((R.id.add_category));
-//        openDialogButton.setOnClickListener(this);
+        Button openDialogButton = (Button) findViewById(R.id.open_template);
+        openDialogButton.setOnClickListener(this);
+
+        openDialogButton = (Button) findViewById((R.id.add_category));
+        openDialogButton.setOnClickListener(this);
 
         //stuff to grab from other screens TODO: connect it all
         currentSemester = "Spring 2022";
         //classes = new ArrayList<Class>(Arrays.asList(new Class("CS 125", "A", "95.5%")));
-        classes = new ArrayList<String>(Arrays.asList("CS 125", "CS 126", "CS 225", "CS 233"));
+        classes = new ArrayList<String>(Arrays.asList("CS 125", "CS 126", "CS 225"));
 
         // Create adapter to interpret data
 
@@ -75,18 +75,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-        //setup buttons
-        /*
-        Button addBtn = (Button)findViewById(R.id.addClassButton);
-        Button profileBtn = (Button)findViewById(R.id.profileButton);
-
-        profileBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, profileActivity.class));
-            }
-*/
-
     public void onClick(View v) {
         if (v.getId() == R.id.open_template) {
             // Open new template page
@@ -96,7 +84,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             openDialog(BottomSheetCodes.AddCategory, "Add Category");
         }
     }
-
-    //list adapter code based off code from https://github.com/CincyAndroiDeveloper/Android-Tutorials
-
 }
