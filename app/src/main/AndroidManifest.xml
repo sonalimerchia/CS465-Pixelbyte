@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pixelbyte">
         <activity
-            android:name=".CreateClassActivity2"
-            android:exported="true" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -22,13 +19,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CreateClassActivity"
+            android:name=".Predictor"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
     </application>
 
