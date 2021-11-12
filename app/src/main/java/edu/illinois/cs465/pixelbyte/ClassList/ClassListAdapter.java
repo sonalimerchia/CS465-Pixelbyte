@@ -6,7 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -42,6 +48,10 @@ public class ClassListAdapter extends ArrayAdapter<ClassData> {
         return LayoutInflater.from(getContext()).inflate(R.layout.class_list_element, null);
     }
 
+    private String makePercent(double percentage) {
+        return (Math.round(percentage * 100) / 100.0) + "%";
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ClassData classItem = getItem(position);
@@ -62,8 +72,19 @@ public class ClassListAdapter extends ArrayAdapter<ClassData> {
         }
 
         TextView numLabel = (TextView) convertView.findViewById(R.id.numgrade);
-        if (numLabel != null && classItem.numberGrade != null && classItem.numberGrade.length() > 0) {
-            numLabel.setText(classItem.numberGrade);
+        if (numLabel != null && classItem.numberGrade != 0) {
+            numLabel.setText(makePercent(classItem.numberGrade));
+        }
+
+        CardView coloredPortion = (CardView) convertView.findViewById(R.id.colored_portion);
+        if (coloredPortion != null && classItem.color != 0) {
+            coloredPortion.setBackgroundColor(classItem.color);
+        }
+
+        TextView getHelpButton = (TextView) convertView.findViewById(R.id.get_help);
+        if (getHelpButton != null && (classItem.goal != 0 && classItem.numberGrade >= classItem.goal)) {
+            getHelpButton.setHeight(0);
+            getHelpButton.setWidth(0);
         }
 
         return convertView;
