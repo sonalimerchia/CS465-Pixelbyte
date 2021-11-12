@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_gravity="fill_horizontal"
+    android:paddingVertical="50dp"
+    android:paddingHorizontal="20dp"
+    tools:context=".CreateNewClass">
+
+    <!-- Cancel Button. Need to place above modal.-->
+    <Button
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textAllCaps="false"/>
+
+    <!-- Activity Title -->
+    <TextView
+        android:id="@+id/add_course_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textSize="30sp"
+        android:text="@string/activity_title_add_course"/>
+
+    <!-- User inputs class name here -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/customborder">
+
+        <TextView
+            android:id="@+id/course_name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/course_name_label"
+            android:textSize="25sp"
+            android:layout_weight="0"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/course_edit_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/course_name_hint"
+            android:autofillHints="name"
+            android:inputType="textPersonName"/>
+
+    </LinearLayout>
+
+    <!-- User selects Class's theme color. This should affect how
+    it's color-coded on the Home Screen and View Course screens-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/customborder">
+
+        <TextView
+            android:id="@+id/course_color_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/course_color_label"
+            android:textSize="25sp"
+            android:layout_marginBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/red_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFFF0000"/>
+            <Button
+                android:id="@+id/green_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FF00FF00"/>
+            <Button
+                android:id="@+id/blue_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FF0000FF"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <!-- User selects department for class. Spinner is populated by a
+    string-array called "class_departments_array" in strings.xml -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/customborder">
+
+        <TextView
+            android:id="@+id/course_department_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/course_department_label"
+            android:textSize="25sp"
+            android:layout_marginBottom="10dp"/>
+
+        <Spinner
+            android:id="@+id/course_dept_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+    <!-- Progress Bar and Next Button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/determinateBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:progress="0"
+            android:layout_gravity="center"
+            android:layout_marginRight="50dp"
+            tools:ignore="NestedWeights" />
+
+        <TextView
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:clickable="true"
+            android:text="@string/next"
+            android:textAllCaps="false"
+            android:textSize="25dp"/>
+
+        <ImageView
+            android:id="@+id/next_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:contentDescription="@string/next"
+            android:clickable="true"
+            android:padding="10dp"
+            android:scaleX="-1"
+            android:src="@drawable/ic_back_svgrepo_com" />
+
+    </LinearLayout>
+</LinearLayout>
