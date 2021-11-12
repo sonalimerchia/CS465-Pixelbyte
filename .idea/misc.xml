@@ -3,37 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
         <entry key="app/src/main/res/drawable/border.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/drawable/circle_background.xml" value="0.2078125" />
-=======
->>>>>>> c39468c (Fix main activity to match lofi prototype)
         <entry key="app/src/main/res/drawable/ic_add_svgrepo_com.xml" value="0.20462962962962963" />
         <entry key="app/src/main/res/drawable/ic_back_svgrepo_com.xml" value="0.20461538461538462" />
         <entry key="app/src/main/res/drawable/ic_cancel_svgrepo_com.xml" value="0.20461538461538462" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.20461538461538462" />
-<<<<<<< HEAD
         <entry key="app/src/main/res/drawable/ic_next_svgrepo_com.xml" value="0.20461538461538462" />
         <entry key="app/src/main/res/drawable/ic_plus_svgrepo_com.xml" value="0.2078125" />
         <entry key="app/src/main/res/drawable/rectangular_shadow.xml" value="0.11481481481481481" />
         <entry key="app/src/main/res/drawable/rounded_corners.xml" value="0.20461538461538462" />
         <entry key="app/src/main/res/layout/activity_add_category.xml" value="0.43089430894308944" />
         <entry key="app/src/main/res/layout/activity_class.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_create_class.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_create_class.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_create_new_template.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_create_template_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_find_template.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_preview_template.xml" value="0.1" />
-=======
-        <entry key="app/src/main/res/drawable/ic_plus_svgrepo_com.xml" value="0.2078125" />
-        <entry key="app/src/main/res/drawable/rectangular_shadow.xml" value="0.11481481481481481" />
-        <entry key="app/src/main/res/layout/activity_add_category.xml" value="0.10280797101449275" />
-        <entry key="app/src/main/res/layout/activity_class.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_create_new_template.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/activity_create_template_list.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
->>>>>>> c39468c (Fix main activity to match lofi prototype)
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_template_in_progress.xml" value="0.10280797101449275" />
         <entry key="app/src/main/res/layout/add_category_layout_dialog.xml" value="0.16818642350557245" />
@@ -53,10 +40,7 @@
         <entry key="app/src/main/res/layout/new_template_layout_dialog.xml" value="0.1638888888888889" />
         <entry key="app/src/main/res/layout/popup.xml" value="0.1" />
         <entry key="app/src/main/res/layout/predictor.xml" value="0.10552536231884058" />
-<<<<<<< HEAD
         <entry key="app/src/main/res/layout/recommended_template_item.xml" value="0.335" />
-=======
->>>>>>> c39468c (Fix main activity to match lofi prototype)
       </map>
     </option>
   </component>

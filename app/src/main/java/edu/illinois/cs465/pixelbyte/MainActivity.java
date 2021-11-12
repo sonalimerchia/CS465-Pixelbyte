@@ -70,6 +70,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void openDialog(BottomSheetCodes code, String bottomSheetName) {
         switch (code) {
+            case CreateClass:
+                openDialog = new CreateClass();
+                break;
             case NewTemplatePreview:
                 openDialog = new CreateNewTemplate();
                 break;
