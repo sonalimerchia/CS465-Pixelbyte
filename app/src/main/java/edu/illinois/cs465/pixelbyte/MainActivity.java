@@ -73,6 +73,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case CreateClass:
                 openDialog = new CreateClass();
                 break;
+            case FindTemplate:
+                openDialog = new FindTemplate();
+                break;
             case NewTemplatePreview:
                 openDialog = new CreateNewTemplate();
                 break;

@@ -6,26 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
 import edu.illinois.cs465.pixelbyte.R;
-
-class ListElem {
-    TextView className;
-    TextView letterGrade;
-    TextView numberGrade;
-    Button getHelp;
-}
-
-
 
 public class ClassListAdapter extends ArrayAdapter<ClassData> {
     public ClassListAdapter(Context context, List<ClassData> objects) {
@@ -62,27 +49,27 @@ public class ClassListAdapter extends ArrayAdapter<ClassData> {
         }
 
         TextView classLabel = (TextView) convertView.findViewById(R.id.classname);
-        if (classLabel != null && classItem.className != null && classItem.className.length() > 0) {
-            classLabel.setText(classItem.className);
+        if (classLabel != null && classItem.className_ != null && classItem.className_.length() > 0) {
+            classLabel.setText(classItem.className_);
         }
 
         TextView letterLabel = (TextView) convertView.findViewById(R.id.lettergrade);
-        if (letterLabel != null && classItem.letterGrade != null && classItem.letterGrade.length() > 0) {
-            letterLabel.setText(classItem.letterGrade);
+        if (letterLabel != null && classItem.letterGrade_ != null && classItem.letterGrade_.length() > 0) {
+            letterLabel.setText(classItem.letterGrade_);
         }
 
         TextView numLabel = (TextView) convertView.findViewById(R.id.numgrade);
-        if (numLabel != null && classItem.numberGrade != 0) {
-            numLabel.setText(makePercent(classItem.numberGrade));
+        if (numLabel != null && classItem.numberGrade_ != 0) {
+            numLabel.setText(makePercent(classItem.numberGrade_));
         }
 
         CardView coloredPortion = (CardView) convertView.findViewById(R.id.colored_portion);
-        if (coloredPortion != null && classItem.color != 0) {
-            coloredPortion.setBackgroundColor(classItem.color);
+        if (coloredPortion != null && classItem.color_ != 0) {
+            coloredPortion.setBackgroundColor(classItem.color_);
         }
 
         TextView getHelpButton = (TextView) convertView.findViewById(R.id.get_help);
-        if (getHelpButton != null && (classItem.goal != 0 && classItem.numberGrade >= classItem.goal)) {
+        if (getHelpButton != null && (classItem.goal_ != 0 && classItem.numberGrade_ >= classItem.goal_)) {
             getHelpButton.setHeight(0);
             getHelpButton.setWidth(0);
         }

@@ -16,9 +16,6 @@
             android:name=".SelectTemplates"
             android:exported="false" />
         <activity
-            android:name=".CreateClass"
-            android:exported="false" />
-        <activity
             android:name=".ClassActivity"
             android:exported="false" />
         <activity
