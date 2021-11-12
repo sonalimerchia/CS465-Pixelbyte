@@ -18,13 +18,14 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
+import edu.illinois.cs465.pixelbyte.ClassList.ClassData;
 import edu.illinois.cs465.pixelbyte.ClassList.ClassListAdapter;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     BottomSheetDialogFragment openDialog;
     private ListView classList;
     private String currentSemester;
-    private ArrayList<String> classes; //each elem = class name, letter, number
+    private ArrayList<ClassData> classes; //each elem = class name, letter, number
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +59,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //stuff to grab from other screens TODO: connect it all
         currentSemester = "Spring 2022";
         //classes = new ArrayList<Class>(Arrays.asList(new Class("CS 125", "A", "95.5%")));
-        classes = new ArrayList<String>(Arrays.asList("CS 125", "CS 126", "CS 225", "t", "s"));
+        classes = new ArrayList<ClassData>();
+        classes.add(new ClassData("CS 125", "A", "95.5%"));
+        classes.add(new ClassData("CS 465", "C+", "78.9%"));
 
         // Create adapter to interpret data
 

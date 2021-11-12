@@ -11,7 +11,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import edu.illinois.cs465.pixelbyte.R;
-import edu.illinois.cs465.pixelbyte.categoryCreation.TemplateCategory;
 
 class ListElem {
     TextView className;
@@ -20,20 +19,10 @@ class ListElem {
     Button getHelp;
 }
 
-class Class {
-    String className;
-    String letterGrade;
-    String numberGrade;
 
-    public Class(String classname, String let, String num) {
-        className = classname;
-        letterGrade = let;
-        numberGrade = num;
-    }
-}
 
-public class ClassListAdapter extends ArrayAdapter<String> {
-    public ClassListAdapter(Context context, List<String> objects) {
+public class ClassListAdapter extends ArrayAdapter<ClassData> {
+    public ClassListAdapter(Context context, List<ClassData> objects) {
         super(context, 0, objects);
     }
 
@@ -50,12 +39,12 @@ public class ClassListAdapter extends ArrayAdapter<String> {
     }
 
     private View getInflatedLayoutForType(int type) {
-        return LayoutInflater.from(getContext()).inflate(R.layout.list_elem, null);
+        return LayoutInflater.from(getContext()).inflate(R.layout.class_list_element, null);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        String className = getItem(position);
+        ClassData classItem = getItem(position);
 
         if (convertView == null) {
             int type = getItemViewType(position);
@@ -63,8 +52,18 @@ public class ClassListAdapter extends ArrayAdapter<String> {
         }
 
         TextView classLabel = (TextView) convertView.findViewById(R.id.classname);
-        if (classLabel != null && className != null && className.length() > 0) {
-            classLabel.setText(className);
+        if (classLabel != null && classItem.className != null && classItem.className.length() > 0) {
+            classLabel.setText(classItem.className);
+        }
+
+        TextView letterLabel = (TextView) convertView.findViewById(R.id.lettergrade);
+        if (letterLabel != null && classItem.letterGrade != null && classItem.letterGrade.length() > 0) {
+            letterLabel.setText(classItem.letterGrade);
+        }
+
+        TextView numLabel = (TextView) convertView.findViewById(R.id.numgrade);
+        if (numLabel != null && classItem.numberGrade != null && classItem.numberGrade.length() > 0) {
+            numLabel.setText(classItem.numberGrade);
         }
 
         return convertView;
