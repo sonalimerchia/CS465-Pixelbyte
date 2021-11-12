@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="app/src/main/res/drawable/ic_add_svgrepo_com.xml" value="0.20462962962962963" />
         <entry key="app/src/main/res/drawable/ic_back_svgrepo_com.xml" value="0.20461538461538462" />
         <entry key="app/src/main/res/drawable/ic_cancel_svgrepo_com.xml" value="0.20461538461538462" />
@@ -27,6 +28,11 @@
         <entry key="app/src/main/res/layout/list_elem.xml" value="0.11096014492753623" />
         <entry key="app/src/main/res/layout/new_template_layout_dialog.xml" value="0.1638888888888889" />
         <entry key="app/src/main/res/layout/predictor.xml" value="0.10552536231884058" />
+=======
+        <entry key="..\:/Users/lvloc/Desktop/GradeManager2/CS465-Pixelbyte/app/src/main/res/layout/Popup.xml" value="0.29891304347826086" />
+        <entry key="..\:/Users/lvloc/Desktop/GradeManager2/CS465-Pixelbyte/app/src/main/res/layout/activity_class.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/lvloc/Desktop/GradeManager2/CS465-Pixelbyte/app/src/main/res/layout/activity_main.xml" value="0.19739583333333333" />
+>>>>>>> b3250a09a83934d8be61abf5f52e17c37790a2f5
       </map>
     </option>
   </component>
