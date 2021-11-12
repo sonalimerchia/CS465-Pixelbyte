@@ -4,18 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="bottom"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/add_class_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:clickable="true"
-        android:focusable="true"
-        android:contentDescription="@string/add_class_button_desc"
-        android:layout_margin="10dp"
-        android:text="add"/>
 
 </LinearLayout>
