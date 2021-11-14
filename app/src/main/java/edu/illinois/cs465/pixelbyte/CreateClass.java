@@ -14,6 +14,7 @@ public class CreateClass extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTitle("Create Class");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_class);
 

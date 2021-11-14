@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // set up buttons at bottom of screen
         Button newClassButton = (Button) findViewById(R.id.open_template);
         newClassButton.setOnClickListener(this);
         Intent intent = new Intent(this, CreateClass.class);
@@ -38,8 +39,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        //openDialogButton = (Button) findViewById((R.id.add_category));
-        //openDialogButton.setOnClickListener(this);
+        /*
+        Button profileButton = (Button) findViewById(R.id.open_profile);
+        profileButton.setOnClickListener(this);
+        Intent intentProfile = new Intent(this, ProfileActivity.class);
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(intentProfile);
+            }
+        });
+        */
+         
+
+
 
         //stuff to grab from other screens TODO: connect it all
         currentSemester = "Spring 2022";
