@@ -2,7 +2,9 @@ package edu.illinois.cs465.pixelbyte;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -30,30 +32,33 @@ public class ClassActivity extends AppCompatActivity {
     HashMap<String, String> weightMap = new HashMap<>();
 
     private void readIn() {
-        try {
-            FileInputStream inputStream = openFileInput("Class.cf");
-            Scanner s = new Scanner(inputStream);
-            classname = s.nextLine();
-            goalStr = s.nextLine();
-            helpStr = s.nextLine();
-            int numCategories = s.nextInt();
-            for (int x = 0; x < numCategories; x++) {
-                //Read a category
-                s.nextLine(); s.nextLine();
+        switch (classname) {
+            case "CS 125":
+                goalStr = "91%";
+                helpStr = "";
+                percentageView.setText("90%");
+                catList.add("Quizzes");
+                catList.add("Tests");
+                catList.add("Homeworks");
+                break;
+            case "CS 126":
+                goalStr = "90%";
+                helpStr = "";
+                percentageView.setText("92.4%");
+                catList.add("Projects");
+                catList.add("Tests");
+                break;
+            case "CS 225":
+                goalStr = "88%";
+                helpStr = "";
+                percentageView.setText("84.2%");
+                catList.add("MPs");
+                catList.add("Tests");
+                catList.add("Homeworks");
+                break;
+        }
+        goalView.setText(goalStr);
 
-                String catName = s.nextLine();
-                catList.add(catName);
-                String weight = s.nextLine();
-
-                weightMap.put(catName, weight);
-                String scheme = s.nextLine();
-                int numAssignments = s.nextInt();
-                for (int y = 0; y < numAssignments; y++) {
-                    String assignmentStr = s.nextLine();
-                }
-            }
-            inputStream.close();
-        } catch (Exception e) {}
     }
 
     @Override
@@ -66,26 +71,21 @@ public class ClassActivity extends AppCompatActivity {
         helpButton = (Button) findViewById(R.id.helpButton);
         weightsButton = (Button) findViewById(R.id.weightsButton);
 
-        String className = getIntent().getExtras().getString("ClassName");
+        classname = getIntent().getExtras().getString("ClassName");
+        this.setTitle(classname);
         readIn();
-        goalView.setText(goalStr);
-
-
-
-
         for (String eachStr : catList) {
             Button b = new Button(this);
             b.setText(eachStr);
             assignmentLayout.addView(b);
-            /*
-            Modify this code to launch the detailed view of a category page
-            Intent intent = new Intent(this, .class);
+            Intent intent = new Intent(this, AssignmentViewActivity.class);
+            intent.putExtra("ClassName", classname);
+            intent.putExtra("Category", eachStr);
             b.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
                     startActivity(intent);
                 }
             });
-            */
         }
 
     }

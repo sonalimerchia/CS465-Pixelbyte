@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import edu.illinois.cs465.pixelbyte.ClassList.ClassListAdapter;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -83,45 +85,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Open add category sheet
             openDialog(BottomSheetCodes.AddCategory, "Add Category");
         }
-        Button classButton = (Button) (findViewById(R.id.MainButton));
-        try {
-            FileOutputStream outputStream = openFileOutput("Class.cf", Context.MODE_PRIVATE);
-            String str = "CS 465\n" +
-                    "90.0%\n" +
-                    "Help can be found on canvas.illinois.edu\n" +
-                    "3\n" +
-                    "\n" +
-                    "Quizzes\n" +
-                    "30%\n" +
-                    "Scheme...\n" +
-                    "3\n" +
-                    "Quiz_1\t90\n" +
-                    "Quiz_2\t98\n" +
-                    "Quiz_3\t92\n" +
-                    "\n" +
-                    "Tests\n" +
-                    "40%\n" +
-                    "Scheme...\n" +
-                    "2\n" +
-                    "Test_1\t90\n" +
-                    "Test_2\t98\n" +
-                    "\n" +
-                    "Projects\n" +
-                    "30%\n" +
-                    "Scheme...\n" +
-                    "1\n" +
-                    "Main_Project\t85";
-            outputStream.write(str.getBytes());
-            outputStream.flush();
-            outputStream.close();
-        } catch (Exception e) {}
+    }
 
+    public void clickedButton(View v) {
+        Button b = (Button) v;
+        ConstraintLayout s = (ConstraintLayout) b.getParent();
+        TextView t = (TextView) s.getChildAt(3);
+        String clickedHelpText = (String) t.getText();
+    }
+
+    public void clickedClass(View v) {
+        ConstraintLayout s = (ConstraintLayout) v;
+        TextView t = (TextView) s.getChildAt(3);
         Intent intent = new Intent(this, ClassActivity.class);
-        intent.putExtra("ClassName", "CS 465");
-        classButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                startActivity(intent);
-            }
-        });
+        intent.putExtra("ClassName", t.getText());
+        startActivity(intent);
     }
 }
