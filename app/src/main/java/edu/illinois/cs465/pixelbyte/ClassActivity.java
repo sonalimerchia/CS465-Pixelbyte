@@ -10,6 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +23,7 @@ public class ClassActivity extends AppCompatActivity {
     LinearLayout assignmentLayout;
     Button helpButton;
     Button weightsButton;
+    BottomSheetDialogFragment openDialog;
 
 
     String goalStr;
@@ -59,6 +62,15 @@ public class ClassActivity extends AppCompatActivity {
         }
         goalView.setText(goalStr);
 
+    }
+
+    public void clickedNew(View view) {
+        openDialog("New Category");
+    }
+
+    private void openDialog(String bottomSheetName) {
+        openDialog = new AddCategory();
+        openDialog.show(getSupportFragmentManager(), bottomSheetName);
     }
 
     @Override

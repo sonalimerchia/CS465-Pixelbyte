@@ -96,7 +96,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
-            app:srcCompat="@android:drawable/btn_plus" />
+            android:onClick="clickedNew"
+            app:backgroundTint="#ff888888"
+            app:srcCompat="@android:drawable/ic_menu_add"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
