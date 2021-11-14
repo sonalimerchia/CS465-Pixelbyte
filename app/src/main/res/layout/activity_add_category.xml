@@ -168,12 +168,12 @@
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/done_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:gravity="right"
         android:layout_gravity="right"
-        android:text="Done"
-        />
+        android:gravity="right"
+        android:padding="20dp"
+        android:text="Done" />
 
 </LinearLayout>

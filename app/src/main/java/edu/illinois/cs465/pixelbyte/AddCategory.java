@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.slider.LabelFormatter;
@@ -39,6 +41,22 @@ public class AddCategory extends BottomSheetDialogFragment {
             }
         };
         weightSlider.setLabelFormatter(percentFormatter);
+
+        // Set up back button
+        ImageView backButton = (ImageView) view.findViewById(R.id.back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().remove(AddCategory.this).commit();
+            }
+        });
+
+        // Set up done button TODO: send data when you click this
+        TextView done = (TextView) view.findViewById(R.id.done_text);
+        done.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().remove(AddCategory.this).commit();
+            }
+        });
 
         return view;
     }

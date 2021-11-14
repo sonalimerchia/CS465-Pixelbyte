@@ -18,7 +18,6 @@ public class CreateClass extends AppCompatActivity {
         setContentView(R.layout.activity_create_class);
 
         Button newTemplateButton = (Button) findViewById(R.id.new_template_button);
-        Intent intentNew = new Intent(this, CreateNewTemplate.class);
         newTemplateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 openDialog(BottomSheetCodes.NewTemplatePreview, "Edit Template");
