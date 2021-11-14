@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pixelbyte">
         <activity
+            android:name=".SelectTemplates"
+            android:exported="false" />
+        <activity
+            android:name=".CreateClass"
+            android:exported="false" />
+        <activity
             android:name=".ClassActivity"
             android:exported="false" />
         <activity
@@ -23,8 +29,7 @@
         </activity>
         <activity
             android:name=".Predictor"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

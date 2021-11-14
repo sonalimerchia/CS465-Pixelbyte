@@ -29,16 +29,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button openDialogButton = (Button) findViewById(R.id.open_template);
-        openDialogButton.setOnClickListener(this);
+        // set up buttons at bottom of screen
+        Button newClassButton = (Button) findViewById(R.id.open_template);
+        newClassButton.setOnClickListener(this);
+        Intent intent = new Intent(this, CreateClass.class);
+        newClassButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(intent);
+            }
+        });
 
-        openDialogButton = (Button) findViewById((R.id.add_category));
-        openDialogButton.setOnClickListener(this);
+        /*
+        Button profileButton = (Button) findViewById(R.id.open_profile);
+        profileButton.setOnClickListener(this);
+        Intent intentProfile = new Intent(this, ProfileActivity.class);
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(intentProfile);
+            }
+        });
+        */
+         
+
+
 
         //stuff to grab from other screens TODO: connect it all
         currentSemester = "Spring 2022";
         //classes = new ArrayList<Class>(Arrays.asList(new Class("CS 125", "A", "95.5%")));
-        classes = new ArrayList<String>(Arrays.asList("CS 125", "CS 126", "CS 225"));
+        classes = new ArrayList<String>(Arrays.asList("CS 125", "CS 126", "CS 225", "t", "s"));
 
         // Create adapter to interpret data
 
@@ -71,18 +89,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         openDialog.show(getSupportFragmentManager(), bottomSheetName);
-
-
     }
 
     public void onClick(View v) {
+        /*
         if (v.getId() == R.id.open_template) {
             // Open new template page
             openDialog(BottomSheetCodes.NewTemplatePreview, "Edit Template");
-        } else if (v.getId() == R.id.add_category) {
-            // Open add category sheet
-            openDialog(BottomSheetCodes.AddCategory, "Add Category");
-        }
+        }*/
         Button classButton = (Button) (findViewById(R.id.MainButton));
         try {
             FileOutputStream outputStream = openFileOutput("Class.cf", Context.MODE_PRIVATE);
