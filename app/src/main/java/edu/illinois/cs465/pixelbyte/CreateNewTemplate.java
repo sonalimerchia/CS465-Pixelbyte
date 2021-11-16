@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
@@ -20,6 +23,8 @@ public class CreateNewTemplate extends BottomSheetDialogFragment {
     double[] weights = {20.0, 15.0, 5.5};
     int[] drops = {2, 3, 0};
     int[] assignments = {15, 20, 30};
+
+    BottomSheetDialogFragment openDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,6 +42,30 @@ public class CreateNewTemplate extends BottomSheetDialogFragment {
         // Apply adapter to list
         template.setAdapter(arr);
 
+        // Set up add category button
+        TextView addCategory = (TextView) view.findViewById(R.id.add_category);
+        addCategory.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                openDialog("New Category");
+            }
+        });
+
+        // Set up back button
+        ImageView backButton = (ImageView) view.findViewById(R.id.back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().remove(CreateNewTemplate.this).commit();
+            }
+        });
+
+        // Set up finish button TODO: send data when you click this
+        TextView finish = (TextView) view.findViewById(R.id.finish_text);
+        finish.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().remove(CreateNewTemplate.this).commit();
+            }
+        });
+
         return view;
     }
 
@@ -47,5 +76,11 @@ public class CreateNewTemplate extends BottomSheetDialogFragment {
         }
 
         return c;
+    }
+
+
+    private void openDialog(String bottomSheetName) {
+        openDialog = new AddCategory();
+        openDialog.show(getActivity().getSupportFragmentManager(), bottomSheetName);
     }
 }

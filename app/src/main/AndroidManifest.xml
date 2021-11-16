@@ -11,6 +11,10 @@
         android:theme="@style/Theme.Pixelbyte">
         <activity
             android:name=".AssignmentViewActivity"
+            android:name=".SelectTemplates"
+            android:exported="false" />
+        <activity
+            android:name=".CreateClass"
             android:exported="false" />
         <activity
             android:name=".ClassActivity"
@@ -26,7 +30,7 @@
         </activity>
         <activity
             android:name=".Predictor"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
