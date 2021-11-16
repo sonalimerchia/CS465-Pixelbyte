@@ -80,6 +80,16 @@
             android:background="#FF9F9F9F"
             android:text="View Weights" />
 
+        <Button
+            android:id="@+id/predictor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:background="#FF9F9F9F"
+            android:text="Predict Grades" />
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
