@@ -94,7 +94,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void onClick(View v) {
-        /*
         if (v.getId() == R.id.open_template) {
             // Open new template page
             openDialog(BottomSheetCodes.NewTemplatePreview, "Edit Template");
