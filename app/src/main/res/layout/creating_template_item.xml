@@ -1,52 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:padding="8dp"
     >
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:id="@+id/delete_category"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/ic_cancel_svgrepo_com" />
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="5"
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"
             android:id="@+id/category_name"
-            android:gravity="center_vertical"
-            android:drawablePadding="10dp"
-            android:ellipsize="end"
-
-            app:drawableStartCompat="@drawable/ic_cancel_svgrepo_com" />
+            android:gravity="left|center_vertical"
+            android:layout_alignTop="@id/delete_category"
+            android:layout_alignBottom="@id/delete_category"
+            android:layout_toRightOf="@id/delete_category"
+        />
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
+            android:gravity="right|center_vertical"
             android:id="@+id/category_weight"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
+            android:layout_alignTop="@id/delete_category"
+            android:layout_alignBottom="@id/delete_category"
             />
-    </LinearLayout>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/category_drops"
-        android:paddingStart="50dp"
-        android:paddingEnd="0dp"
-        />
-    <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingStart="50dp"
-        android:paddingEnd="0dp"
+        android:layout_below="@id/category_name"
+        android:layout_alignLeft="@id/category_name"
+        android:paddingStart="20dp"
+        android:paddingEnd="0dp" />
+
+    <TextView
         android:id="@+id/category_assigments"
-        />
-</LinearLayout>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/category_drops"
+        android:layout_alignLeft="@id/category_name"
+        android:paddingStart="20dp"
+        android:paddingEnd="0dp"/>
+</RelativeLayout>

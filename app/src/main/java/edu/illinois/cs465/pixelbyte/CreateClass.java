@@ -4,47 +4,28 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-public class CreateClass extends AppCompatActivity {
-    BottomSheetDialogFragment openDialog;
+public class CreateClass extends BottomSheetDialogFragment {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        setTitle("Create Class");
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_class);
+        View view = inflater.inflate(R.layout.activity_create_class, container, false);
 
-        Button newTemplateButton = (Button) findViewById(R.id.new_template_button);
-        newTemplateButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                openDialog(BottomSheetCodes.NewTemplatePreview, "Edit Template");
-            }
-        });
+        Spinner spinner = (Spinner) view.findViewById(R.id.department_selector);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(view.getContext(),
+                R.array.departments_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
-
-        Button selectTemplateButton = (Button) findViewById(R.id.choose_template_button);
-        Intent intentSelect = new Intent(this, SelectTemplates.class);
-        selectTemplateButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                startActivity(intentSelect);
-            }
-        });
-    }
-
-    private void openDialog(BottomSheetCodes code, String bottomSheetName) {
-        switch (code) {
-            case NewTemplatePreview:
-                openDialog = new CreateNewTemplate();
-                break;
-            case AddCategory:
-                openDialog = new AddCategory();
-                break;
-        }
-
-        openDialog.show(getSupportFragmentManager(), bottomSheetName);
+        return view;
     }
 }
