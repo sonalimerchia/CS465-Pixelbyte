@@ -81,6 +81,7 @@
         android:padding="20dp"
         >
         <EditText
+            android:id="@+id/earned_input"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -98,6 +99,7 @@
             />
 
         <EditText
+            android:id="@+id/possible_input"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"

@@ -17,7 +17,7 @@ public class ViewCategory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_category);
 
-        category_ = TemplateCategory.extract(savedInstanceState, 0);
+        category_ = TemplateCategory.extract(getIntent().getExtras(), 0);
 
         setTitle(category_.name_);
 

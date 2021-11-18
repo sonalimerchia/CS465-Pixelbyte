@@ -11,11 +11,14 @@ import android.widget.TextView;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import edu.illinois.cs465.pixelbyte.CategoryList.ClassCategoryAdapter;
+import edu.illinois.cs465.pixelbyte.ClassStructures.Assignment;
 import edu.illinois.cs465.pixelbyte.ClassStructures.ClassData;
+import edu.illinois.cs465.pixelbyte.ClassStructures.TemplateCategory;
 import edu.illinois.cs465.pixelbyte.categoryCreation.CategoryArrayAdapter;
 
 public class ClassActivity extends AppCompatActivity {
     BottomSheetDialogFragment openDialog;
+    ClassCategoryAdapter adapter;
     ClassData classData_;
 
     private void openDialog(String bottomSheetName) {
@@ -48,11 +51,20 @@ public class ClassActivity extends AppCompatActivity {
 
         // Create adapter to interpret data
         ListView categories = (ListView) findViewById(R.id.category_list);
-        ClassCategoryAdapter arr = new ClassCategoryAdapter(this, classData_.categories_);
+        adapter = new ClassCategoryAdapter(this, classData_.categories_);
 
         // Apply adapter to list
-        categories.setAdapter(arr);
+        categories.setAdapter(adapter);
+    }
 
-        System.out.println(classData_.categories_.get(0).enteredAssignments_.size());
+    public void addAssignment(Assignment a, String category) {
+        for (TemplateCategory tc : classData_.categories_) {
+            if (tc.name_.equals(category)) {
+                tc.enteredAssignments_.add(a);
+                break;
+            }
+        }
+
+        adapter.notifyDataSetChanged();
     }
 }
