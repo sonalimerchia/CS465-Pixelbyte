@@ -10,11 +10,15 @@ import android.widget.TextView;
 import java.util.List;
 
 import edu.illinois.cs465.pixelbyte.ClassList.ClassData;
+import edu.illinois.cs465.pixelbyte.MainActivity;
 import edu.illinois.cs465.pixelbyte.R;
 
 public class RecommendedTemplateAdapter extends ArrayAdapter<ClassData> {
-    public RecommendedTemplateAdapter(Context context, List<ClassData> objects) {
+    MainActivity parent_;
+
+    public RecommendedTemplateAdapter(Context context, List<ClassData> objects, MainActivity m) {
         super(context, 0, objects);
+        parent_ = m;
     }
 
     // Return an integer representing the type by fetching the enum type ordinal
@@ -45,6 +49,8 @@ public class RecommendedTemplateAdapter extends ArrayAdapter<ClassData> {
             int type = getItemViewType(position);
             convertView = getInflatedLayoutForType(type);
         }
+
+        convertView.setOnClickListener(new RecommendationElementClickListener(parent_, classItem.className_));
 
         TextView classLabel = (TextView) convertView.findViewById(R.id.template_name);
         if (classLabel != null && classItem.className_ != null && classItem.className_.length() > 0) {

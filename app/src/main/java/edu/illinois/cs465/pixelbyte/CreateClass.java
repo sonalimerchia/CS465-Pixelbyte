@@ -1,14 +1,10 @@
 package edu.illinois.cs465.pixelbyte;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
@@ -26,6 +22,19 @@ public class CreateClass extends BottomSheetDialogFragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+        View nextButton = view.findViewById(R.id.to_template_finder);
+        if (nextButton != null) {
+            nextButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MainActivity m = (MainActivity) getActivity();
+                    m.openDialog(BottomSheetCodes.FindTemplate, "Find Template");
+                }
+            });
+        }
+
         return view;
     }
+
+
 }

@@ -10,8 +10,11 @@ import android.widget.TextView;
 import edu.illinois.cs465.pixelbyte.R;
 
 public class CategoryArrayAdapter extends ArrayAdapter<TemplateCategory> {
-    public CategoryArrayAdapter(Context context, TemplateCategory[] categories) {
+    int viewType_;
+
+    public CategoryArrayAdapter(Context context, TemplateCategory[] categories, int id) {
         super(context, 0, categories);
+        viewType_ = id;
     }
 
     // Return an integer representing the type by fetching the enum type ordinal
@@ -76,6 +79,6 @@ public class CategoryArrayAdapter extends ArrayAdapter<TemplateCategory> {
 
     // Given the item type, responsible for returning the correct inflated XML layout file
     private View getInflatedLayoutForType(int type) {
-        return LayoutInflater.from(getContext()).inflate(R.layout.creating_template_item, null);
+        return LayoutInflater.from(getContext()).inflate(viewType_, null);
     }
 }

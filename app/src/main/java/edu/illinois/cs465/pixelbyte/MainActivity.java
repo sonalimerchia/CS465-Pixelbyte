@@ -68,7 +68,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void openDialog(BottomSheetCodes code, String bottomSheetName) {
+    public void openDialog(BottomSheetCodes code, String bottomSheetName) {
+        if (openDialog != null && openDialog.isVisible()) {
+            openDialog.onDestroyView();
+        }
+
         switch (code) {
             case CreateClass:
                 openDialog = new CreateClass();
@@ -81,6 +85,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case AddCategory:
                 openDialog = new AddCategory();
+                break;
+            case PreviewTemplate:
+                openDialog = new PreviewTemplate(bottomSheetName);
                 break;
         }
 

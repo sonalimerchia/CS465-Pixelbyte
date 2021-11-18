@@ -14,11 +14,12 @@
         <entry key="app/src/main/res/drawable/rectangular_shadow.xml" value="0.11481481481481481" />
         <entry key="app/src/main/res/drawable/rounded_corners.xml" value="0.20461538461538462" />
         <entry key="app/src/main/res/layout/activity_add_category.xml" value="0.43089430894308944" />
+        <entry key="app/src/main/res/layout/activity_assignment_view.xml" value="0.18125" />
         <entry key="app/src/main/res/layout/activity_class.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_create_class.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_create_new_template.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_create_template_list.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_find_template.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_find_template.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_preview_template.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.1" />
@@ -41,6 +42,7 @@
         <entry key="app/src/main/res/layout/popup.xml" value="0.1" />
         <entry key="app/src/main/res/layout/predictor.xml" value="0.10552536231884058" />
         <entry key="app/src/main/res/layout/recommended_template_item.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/template_list_item.xml" value="0.2749094202898551" />
       </map>
     </option>
   </component>
