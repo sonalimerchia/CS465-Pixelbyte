@@ -23,11 +23,13 @@ public class ClassActivity extends AppCompatActivity {
     LinearLayout assignmentLayout;
     Button helpButton;
     Button weightsButton;
+    Button predictButton;
     BottomSheetDialogFragment openDialog;
 
 
     String goalStr;
     String helpStr;
+    String percentageStr;
 
     String classname;
 
@@ -39,7 +41,7 @@ public class ClassActivity extends AppCompatActivity {
             case "CS 125":
                 goalStr = "91%";
                 helpStr = "";
-                percentageView.setText("90%");
+                percentageStr = "90%";
                 catList.add("Quizzes");
                 catList.add("Tests");
                 catList.add("Homeworks");
@@ -47,20 +49,21 @@ public class ClassActivity extends AppCompatActivity {
             case "CS 126":
                 goalStr = "90%";
                 helpStr = "";
-                percentageView.setText("92.4%");
+                percentageStr = "92.4%";
                 catList.add("Projects");
                 catList.add("Tests");
                 break;
             case "CS 225":
                 goalStr = "88%";
                 helpStr = "";
-                percentageView.setText("84.2%");
+                percentageStr = "84.2%";
                 catList.add("MPs");
                 catList.add("Tests");
                 catList.add("Homeworks");
                 break;
         }
         goalView.setText(goalStr);
+        percentageView.setText(percentageStr);
 
     }
 
@@ -100,5 +103,17 @@ public class ClassActivity extends AppCompatActivity {
             });
         }
 
+        // Predictor
+        predictButton = (Button) findViewById(R.id.predictor);
+        Intent predictIntent = new Intent(this, Predictor.class);
+        predictIntent.putExtra("Categories", catList);
+        predictIntent.putExtra("Goal", goalStr);
+        predictIntent.putExtra("Percentage", percentageStr);
+        predictButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(predictIntent);
+            }
+        });
     }
 }
