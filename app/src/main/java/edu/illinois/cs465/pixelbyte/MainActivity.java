@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        /*
+
         Button profileButton = (Button) findViewById(R.id.open_profile);
         profileButton.setOnClickListener(this);
         Intent intentProfile = new Intent(this, ProfileActivity.class);
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intentProfile);
             }
         });
-        */
+
          
 
 
