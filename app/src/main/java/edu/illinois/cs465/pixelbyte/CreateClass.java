@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import edu.illinois.cs465.pixelbyte.categoryCreation.CategoryArrayAdapter;
 import edu.illinois.cs465.pixelbyte.categoryCreation.TemplateCategory;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,14 +22,12 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 /* This is the first activity page to create a Class Object.
 TODO: Navigation + Passing information back to Home Screen
  */
-public class CreateNewClass extends BottomSheetDialogFragment {
+public class CreateClass extends BottomSheetDialogFragment {
+    BottomSheetDialogFragment openDialog;
     // Text Views
-    private TextView addClassTitle;
-    private TextView courseNameLabel;
-    private TextView courseColorLabel;
-    private TextView courseDeptLabel;
-    private TextView nextLabel;
+    private TextView nextLable;
 
+    // EditText Views
     private EditText courseNameInput;
 
     // Button Views
@@ -42,8 +41,9 @@ public class CreateNewClass extends BottomSheetDialogFragment {
     // Spinner (Drop Down Menu)
     private Spinner courseDeptSpinner;
 
-    public static CreateNewClass newInstance() {
-        return new CreateNewClass();
+
+    public static CreateClass newInstance() {
+        return new CreateClass();
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -69,10 +69,10 @@ public class CreateNewClass extends BottomSheetDialogFragment {
         blueButton.setOnClickListener((View.OnClickListener) this);
 
         //Navigation Buttons
-        nextLabel = (TextView) view.findViewById(R.id.next_label);
+        nextLable = (TextView) view.findViewById(R.id.next_label);
         nextArrow = (ImageView) view.findViewById(R.id.next_arrow);
 
-        nextLabel.setOnClickListener((View.OnClickListener) this);
+        nextLable.setOnClickListener((View.OnClickListener) this);
         nextArrow.setOnClickListener((View.OnClickListener) this);
 
         //Spinner (Drop-down menu)
@@ -80,7 +80,7 @@ public class CreateNewClass extends BottomSheetDialogFragment {
         courseDeptSpinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
 
         // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(((CreateNewClass) this).getContext(),
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(((CreateClass) this).getContext(),
                 R.array.class_departments_array, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -88,5 +88,18 @@ public class CreateNewClass extends BottomSheetDialogFragment {
         courseDeptSpinner.setAdapter(adapter);
 
         return view;
+    }
+
+    private void openDialog(BottomSheetCodes code, String bottomSheetName) {
+        switch (code) {
+            case NewTemplatePreview:
+                openDialog = new CreateNewTemplate();
+                break;
+            case AddCategory:
+                openDialog = new AddCategory();
+                break;
+        }
+
+        openDialog.show(getSupportFragmentManager(), bottomSheetName);
     }
 }

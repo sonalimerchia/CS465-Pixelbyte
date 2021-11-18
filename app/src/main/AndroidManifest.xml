@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pixelbyte">
         <activity
+            android:name=".AssignmentViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ClassActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

@@ -2,6 +2,8 @@ package edu.illinois.cs465.pixelbyte;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,10 +11,13 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import edu.illinois.cs465.pixelbyte.ClassList.ClassListAdapter;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -26,16 +31,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button openDialogButton = (Button) findViewById(R.id.open_template);
-        openDialogButton.setOnClickListener(this);
+        // set up buttons at bottom of screen
+        Button newClassButton = (Button) findViewById(R.id.open_template);
+        newClassButton.setOnClickListener(this);
+        Intent intent = new Intent(this, CreateClass.class);
+        newClassButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(intent);
+            }
+        });
 
-        openDialogButton = (Button) findViewById((R.id.add_category));
-        openDialogButton.setOnClickListener(this);
+        /*
+        Button profileButton = (Button) findViewById(R.id.open_profile);
+        profileButton.setOnClickListener(this);
+        Intent intentProfile = new Intent(this, ProfileActivity.class);
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(intentProfile);
+            }
+        });
+        */
+         
+
+
 
         //stuff to grab from other screens TODO: connect it all
         currentSemester = "Spring 2022";
         //classes = new ArrayList<Class>(Arrays.asList(new Class("CS 125", "A", "95.5%")));
-        classes = new ArrayList<String>(Arrays.asList("CS 125", "CS 126", "CS 225"));
+        classes = new ArrayList<String>(Arrays.asList("CS 125", "CS 126", "CS 225", "t", "s"));
 
         // Create adapter to interpret data
 
@@ -68,8 +91,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         openDialog.show(getSupportFragmentManager(), bottomSheetName);
-
-
     }
 
     public void onClick(View v) {
@@ -80,5 +101,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Open add category sheet
             openDialog(BottomSheetCodes.AddCategory, "Add Category");
         }
+    }
+
+    public void clickedButton(View v) {
+        Button b = (Button) v;
+        ConstraintLayout s = (ConstraintLayout) b.getParent();
+        TextView t = (TextView) s.getChildAt(3);
+        String clickedHelpText = (String) t.getText();
+    }
+
+
+    public void clickedClass(View v) {
+        ConstraintLayout s = (ConstraintLayout) v;
+        TextView t = (TextView) s.getChildAt(3);
+        Intent intent = new Intent(this, ClassActivity.class);
+        intent.putExtra("ClassName", t.getText());
+        startActivity(intent);
     }
 }

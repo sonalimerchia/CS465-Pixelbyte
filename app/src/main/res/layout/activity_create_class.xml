@@ -9,7 +9,7 @@
     android:layout_gravity="fill_horizontal"
     android:paddingVertical="50dp"
     android:paddingHorizontal="20dp"
-    tools:context=".CreateNewClass">
+    tools:context=".CreateClass">
 
     <!-- Cancel Button. Need to place above modal.-->
     <Button

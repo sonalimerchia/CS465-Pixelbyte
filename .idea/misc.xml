@@ -4,9 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/drawable/custom_border.xml" value="0.1265625" />
-        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_create_new_class.xml" value="0.264" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_add_category.xml" value="0.264" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_class.xml" value="0.264" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_create_class.xml" value="0.176" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_create_new_class.xml" value="0.176" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_create_new_template.xml" value="0.264" />
         <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_select_template_options.xml" value="0.109375" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_profile.xml" value="0.1515625" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_select_template_options.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_select_templates.xml" value="0.2" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/creating_template_item.xml" value="0.264" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/list_elem.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/drawable/ic_add_svgrepo_com.xml" value="0.20462962962962963" />
         <entry key="app/src/main/res/drawable/ic_back_svgrepo_com.xml" value="0.20461538461538462" />
         <entry key="app/src/main/res/drawable/ic_cancel_svgrepo_com.xml" value="0.20461538461538462" />
