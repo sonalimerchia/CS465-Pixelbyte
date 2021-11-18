@@ -103,11 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     public void clickedClass(View v) {
-        ConstraintLayout s = (ConstraintLayout) v;
-        TextView t = (TextView) s.getChildAt(3);
-        Intent intent = new Intent(this, ClassActivity.class);
-        intent.putExtra("ClassName", t.getText());
-        startActivity(intent);
+
 
 //        try {
 //            FileOutputStream outputStream = openFileOutput("Class.cf", Context.MODE_PRIVATE);

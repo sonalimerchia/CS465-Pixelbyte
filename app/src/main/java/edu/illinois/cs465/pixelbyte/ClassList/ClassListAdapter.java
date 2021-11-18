@@ -48,6 +48,8 @@ public class ClassListAdapter extends ArrayAdapter<ClassData> {
             convertView = getInflatedLayoutForType(type);
         }
 
+        convertView.setOnClickListener(new ClassElementClickListener(classItem));
+
         TextView classLabel = (TextView) convertView.findViewById(R.id.classname);
         if (classLabel != null && classItem.className_ != null && classItem.className_.length() > 0) {
             classLabel.setText(classItem.className_);
