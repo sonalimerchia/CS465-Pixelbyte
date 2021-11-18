@@ -26,8 +26,7 @@ public class Assignment {
         return "Assignment" + categoryIndex + "-" + assignmentIndex;
     }
 
-    public static Assignment extract(Intent intent, int categoryIndex, int assignmentIndex) {
-        Bundle extras = intent.getExtras();
+    public static Assignment extract(Bundle extras, int categoryIndex, int assignmentIndex) {
         String assignmentIdentifier = makeIdentifier(categoryIndex, assignmentIndex);
 
         String name = extras.getString(assignmentIdentifier + "Name");

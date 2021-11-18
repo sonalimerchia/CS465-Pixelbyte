@@ -42,8 +42,7 @@ public class TemplateCategory {
         return c;
     }
 
-    public static TemplateCategory extract(Intent intent, int idx) {
-        Bundle extras = intent.getExtras();
+    public static TemplateCategory extract(Bundle extras, int idx) {
 
         String name = extras.getString("CategoryName" + (idx + 1));
         double weight = extras.getDouble("CategoryWeight" + (idx + 1));
@@ -54,7 +53,7 @@ public class TemplateCategory {
         int numEntered = extras.getInt("CategoryEnteredAssignments" + (idx + 1));
 
         for (int assignIdx = 0; assignIdx < numEntered; ++assignIdx) {
-            tc.enteredAssignments_.add(Assignment.extract(intent, idx, assignIdx));
+            tc.enteredAssignments_.add(Assignment.extract(extras, idx, assignIdx));
         }
 
         return tc;

@@ -43,6 +43,7 @@
                 />
 
             <EditText
+                android:id="@+id/class_name_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="ex) CS 125"
@@ -80,6 +81,7 @@
                     android:orientation="vertical"
                     >
                     <TextView
+                        android:id="@+id/red_button"
                         style="@style/RoundedTextButton"
                         android:background="@drawable/circle_background"
                         android:backgroundTint="#FFFF0000"
@@ -96,6 +98,7 @@
                     >
                     <TextView
                         style="@style/RoundedTextButton"
+                        android:id="@+id/yellow_button"
                         android:background="@drawable/circle_background"
                         android:backgroundTint="#FFFFFF00"
                         android:text="Y"
@@ -111,6 +114,7 @@
                     >
                     <TextView
                         style="@style/RoundedTextButton"
+                        android:id="@+id/green_button"
                         android:background="@drawable/circle_background"
                         android:backgroundTint="#FF00FF00"
                         android:text="G"
@@ -126,6 +130,7 @@
                     >
                     <TextView
                         style="@style/RoundedTextButton"
+                        android:id="@+id/blue_button"
                         android:background="@drawable/circle_background"
                         android:backgroundTint="#FF0000FF"
                         android:text="B"

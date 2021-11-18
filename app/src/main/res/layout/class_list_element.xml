@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="left"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-                    android:text="90"
+                    android:text="No data"
                     />
 
                 <TextView
@@ -61,7 +61,7 @@
                     android:layout_weight="1"
                     android:gravity="right"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-                    android:text="A"
+                    android:text=""
                     />
             </LinearLayout>
         </LinearLayout>

@@ -5,6 +5,7 @@ import androidx.cardview.widget.CardView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     BottomSheetDialogFragment openDialog;
     private String currentSemester;
     private List<ClassData> classes; //each elem = class name, letter, number
+    private ClassListAdapter adapter;
+    ClassData inProgress_;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             classList.setVisibility(View.VISIBLE);
             noClasses.setVisibility(View.INVISIBLE);
 
-            ClassListAdapter adapter = new ClassListAdapter(this, classes);
+            adapter = new ClassListAdapter(this, classes);
             classList.setAdapter(adapter);
         }
     }
@@ -88,5 +91,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             openDialog(BottomSheetCodes.CreateClass, "Create Class");
             return;
         }
+    }
+
+    public void startNewClass(String name, int color, String department) {
+        inProgress_ = new ClassData(name, color, department);
+    }
+
+    public void finishTemplate() {
+        classes.add(inProgress_);
+        adapter.notifyDataSetChanged();
     }
 }

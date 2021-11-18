@@ -12,11 +12,12 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.List;
 
+import edu.illinois.cs465.pixelbyte.ClassStructures.ClassData;
 import edu.illinois.cs465.pixelbyte.categoryCreation.CategoryArrayAdapter;
 import edu.illinois.cs465.pixelbyte.ClassStructures.TemplateCategory;
 
 public class CreateNewTemplate extends BottomSheetDialogFragment {
-    ListView template;
+    ClassData classData_;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -25,11 +26,12 @@ public class CreateNewTemplate extends BottomSheetDialogFragment {
         View view = inflater.inflate(R.layout.activity_create_new_template, container, false);
 
         // Create items from sample data
-        List<TemplateCategory> items = TemplateCategory.createItems();
+        MainActivity parent = (MainActivity)(getActivity());
+        classData_ = parent.inProgress_;
 
         // Create adapter to interpret data
-        template = view.findViewById(R.id.template_in_progress);
-        CategoryArrayAdapter arr = new CategoryArrayAdapter(view.getContext(), items, R.layout.creating_template_item);
+        ListView template = view.findViewById(R.id.template_in_progress);
+        CategoryArrayAdapter arr = new CategoryArrayAdapter(view.getContext(), classData_.categories_, R.layout.creating_template_item);
 
         // Apply adapter to list
         template.setAdapter(arr);
@@ -57,6 +59,7 @@ public class CreateNewTemplate extends BottomSheetDialogFragment {
         finish.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 MainActivity m = (MainActivity) (getActivity());
+                m.finishTemplate();
                 m.openDialog.onDestroyView();
             }
         });

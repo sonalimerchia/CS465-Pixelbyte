@@ -28,7 +28,8 @@ public class ClassActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class);
 
-        classData_ = ClassData.extract(getIntent());
+        Bundle extras = getIntent().getExtras();
+        classData_ = ClassData.extract(extras);
 
         this.setTitle(classData_.className_);
 

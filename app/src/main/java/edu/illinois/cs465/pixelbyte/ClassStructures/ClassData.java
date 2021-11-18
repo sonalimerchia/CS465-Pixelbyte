@@ -9,6 +9,7 @@ import java.util.List;
 public class ClassData {
     public String className_;
     public String letterGrade_;
+    public String department_;
     public double numberGrade_;
     public double goal_;
     public int color_;
@@ -18,6 +19,7 @@ public class ClassData {
         className_ = classname;
         letterGrade_ = let;
         numberGrade_ = num;
+        department_ = "";
         color_ = 0;
         goal_ = 0;
         categories_ = new ArrayList<>();
@@ -28,7 +30,18 @@ public class ClassData {
         letterGrade_ = let;
         numberGrade_ = num;
         color_ = col;
+        department_ = "";
         goal_ = 0;
+        categories_ = new ArrayList<>();
+    }
+
+    public ClassData(String classname, int color, String department) {
+        className_ = classname;
+        letterGrade_ = "";
+        numberGrade_ = 0;
+        color_ = color;
+        goal_ = 0;
+
         categories_ = new ArrayList<>();
     }
 
@@ -38,6 +51,7 @@ public class ClassData {
         numberGrade_ = num;
         color_ = col;
         goal_ = gol;
+        department_ = "";
         categories_ = new ArrayList<>();
     }
 
@@ -49,8 +63,8 @@ public class ClassData {
         return (Math.round(goal_ * 100) / 100.0) + "%";
     }
 
-    public static ClassData extract(Intent intent) {
-        Bundle extras = intent.getExtras();
+    public static ClassData extract(Bundle extras) {
+        if (extras == null) return null;
 
         String cn = extras.getString("ClassName");
         String lg = extras.getString("LetterGrade");
@@ -62,7 +76,7 @@ public class ClassData {
 
         int numCategories = extras.getInt("NumCategories");
         for (int idx = 0; idx < numCategories; ++idx) {
-            cd.categories_.add(TemplateCategory.extract(intent, idx));
+            cd.categories_.add(TemplateCategory.extract(extras, idx));
         }
 
         return cd;
