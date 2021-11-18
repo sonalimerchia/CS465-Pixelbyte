@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/drawable/ic_plus_svgrepo_com.xml" value="0.2078125" />
         <entry key="app/src/main/res/drawable/rectangular_shadow.xml" value="0.11481481481481481" />
         <entry key="app/src/main/res/drawable/rounded_corners.xml" value="0.20461538461538462" />
+        <entry key="app/src/main/res/layout/activity_add_assignment.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/layout/activity_add_category.xml" value="0.43089430894308944" />
         <entry key="app/src/main/res/layout/activity_assignment_view.xml" value="0.18125" />
         <entry key="app/src/main/res/layout/activity_class.xml" value="0.335" />

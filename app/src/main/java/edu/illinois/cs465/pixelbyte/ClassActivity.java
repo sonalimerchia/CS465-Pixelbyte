@@ -1,6 +1,7 @@
 package edu.illinois.cs465.pixelbyte;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,15 +20,8 @@ public class ClassActivity extends AppCompatActivity {
     BottomSheetDialogFragment openDialog;
     ClassData classData_;
 
-    ArrayList<String> catList = new ArrayList<>();
-    HashMap<String, String> weightMap = new HashMap<>();
-
-    public void clickedNew(View view) {
-        openDialog("New Category");
-    }
-
     private void openDialog(String bottomSheetName) {
-        openDialog = new AddCategory();
+        openDialog = new AddAssignment();
         openDialog.show(getSupportFragmentManager(), bottomSheetName);
     }
 
@@ -45,5 +39,12 @@ public class ClassActivity extends AppCompatActivity {
 
         TextView goal = (TextView) findViewById(R.id.goal);
         goal.setText(classData_.makeGoalString());
+
+        CardView addButton = (CardView) findViewById(R.id.create_assignment);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                openDialog("Add Assignment");
+            }
+        });
     }
 }

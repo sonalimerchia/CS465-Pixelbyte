@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
@@ -18,7 +18,7 @@ import edu.illinois.cs465.pixelbyte.ClassList.ClassListAdapter;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     BottomSheetDialogFragment openDialog;
     private String currentSemester;
-    private ArrayList<ClassData> classes; //each elem = class name, letter, number
+    private List<ClassData> classes; //each elem = class name, letter, number
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void createClassList() {
-        classes = new ArrayList<>();
-        classes.add(new ClassData("CS 125", "A", 95.5, 0xffffff00, 90.0));
-        classes.add(new ClassData("CS 465", "C+", 78.9, 0xff00ff00, 90.0));
-        classes.add(new ClassData("CS 233", "B-", 83.9, 0xff00ffff, 80.0));
+        classes = ClassData.createSampleList();
 
         // Create adapter to interpret data
 
