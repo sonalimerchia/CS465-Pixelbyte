@@ -44,4 +44,8 @@ public class Assignment {
         intent.putExtra(assignmentIdentifier + "Earned", earnedPoints_);
         intent.putExtra(assignmentIdentifier + "Max", maxPoints_);
     }
+
+    public String makeGrade() {
+        return (Math.round(earnedPoints_ / maxPoints_ * 10000))/100.0 + "%";
+    }
 }

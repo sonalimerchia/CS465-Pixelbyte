@@ -1,4 +1,4 @@
-package edu.illinois.cs465.pixelbyte.CategoryList;
+package edu.illinois.cs465.pixelbyte.AssignmentList;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,10 +11,9 @@ import java.util.List;
 
 import edu.illinois.cs465.pixelbyte.ClassStructures.Assignment;
 import edu.illinois.cs465.pixelbyte.R;
-import edu.illinois.cs465.pixelbyte.ClassStructures.TemplateCategory;
 
-public class ClassCategoryAdapter extends ArrayAdapter<TemplateCategory> {
-    public ClassCategoryAdapter(Context context, List<TemplateCategory> categories) {
+public class AssignmentListAdapter extends ArrayAdapter<Assignment> {
+    public AssignmentListAdapter(Context context, List<Assignment> categories) {
         super(context, 0, categories);
     }
 
@@ -33,7 +32,7 @@ public class ClassCategoryAdapter extends ArrayAdapter<TemplateCategory> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the item at the given position
-        TemplateCategory category = getItem(position);
+        Assignment assignment = getItem(position);
 
         // If there isn't a view, don't update it
         if (convertView == null) {
@@ -41,20 +40,14 @@ public class ClassCategoryAdapter extends ArrayAdapter<TemplateCategory> {
             convertView = getInflatedLayoutForType(type);
         }
 
-        convertView.setOnClickListener(new ClassCategoryElementClickListener(category));
-
         TextView nameTag = (TextView) convertView.findViewById(R.id.category_name);
         if (nameTag != null) {
-            nameTag.setText(category.name_);
+            nameTag.setText(assignment.name_);
         }
 
         TextView percentTag = (TextView) convertView.findViewById(R.id.category_grade);
         if (percentTag != null) {
-            if (category.enteredAssignments_.size() == 0) {
-                percentTag.setText("No Data");
-            } else {
-                percentTag.setText(category.getGrade());
-            }
+            percentTag.setText(assignment.makeGrade());
         }
 
 
