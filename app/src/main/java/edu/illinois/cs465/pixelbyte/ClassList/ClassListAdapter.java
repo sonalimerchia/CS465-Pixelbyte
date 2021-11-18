@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
@@ -35,10 +34,6 @@ public class ClassListAdapter extends ArrayAdapter<ClassData> {
         return LayoutInflater.from(getContext()).inflate(R.layout.class_list_element, null);
     }
 
-    private String makePercent(double percentage) {
-        return (Math.round(percentage * 100) / 100.0) + "%";
-    }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ClassData classItem = getItem(position);
@@ -62,7 +57,7 @@ public class ClassListAdapter extends ArrayAdapter<ClassData> {
 
         TextView numLabel = (TextView) convertView.findViewById(R.id.numgrade);
         if (numLabel != null && classItem.numberGrade_ != 0) {
-            numLabel.setText(makePercent(classItem.numberGrade_));
+            numLabel.setText(classItem.makeGradeString());
         }
 
         CardView coloredPortion = (CardView) convertView.findViewById(R.id.colored_portion);

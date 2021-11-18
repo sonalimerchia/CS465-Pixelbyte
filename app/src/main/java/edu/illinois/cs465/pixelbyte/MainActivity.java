@@ -3,23 +3,15 @@ package edu.illinois.cs465.pixelbyte;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.io.FileOutputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
 import edu.illinois.cs465.pixelbyte.ClassList.ClassData;
 import edu.illinois.cs465.pixelbyte.ClassList.ClassListAdapter;
 
@@ -99,57 +91,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             openDialog(BottomSheetCodes.CreateClass, "Create Class");
             return;
         }
-    }
-
-    public void clickedButton(View v) {
-        Button b = (Button) v;
-        ConstraintLayout s = (ConstraintLayout) b.getParent();
-        TextView t = (TextView) s.getChildAt(3);
-        String clickedHelpText = (String) t.getText();
-    }
-
-
-    public void clickedClass(View v) {
-
-
-//        try {
-//            FileOutputStream outputStream = openFileOutput("Class.cf", Context.MODE_PRIVATE);
-//            String str = "CS 465\n" +
-//                    "90.0%\n" +
-//                    "Help can be found on canvas.illinois.edu\n" +
-//                    "3\n" +
-//                    "\n" +
-//                    "Quizzes\n" +
-//                    "30%\n" +
-//                    "Scheme...\n" +
-//                    "3\n" +
-//                    "Quiz_1\t90\n" +
-//                    "Quiz_2\t98\n" +
-//                    "Quiz_3\t92\n" +
-//                    "\n" +
-//                    "Tests\n" +
-//                    "40%\n" +
-//                    "Scheme...\n" +
-//                    "2\n" +
-//                    "Test_1\t90\n" +
-//                    "Test_2\t98\n" +
-//                    "\n" +
-//                    "Projects\n" +
-//                    "30%\n" +
-//                    "Scheme...\n" +
-//                    "1\n" +
-//                    "Main_Project\t85";
-//            outputStream.write(str.getBytes());
-//            outputStream.flush();
-//            outputStream.close();
-//        } catch (Exception e) {}
-//
-//        Intent intent = new Intent(this, ClassActivity.class);
-//        intent.putExtra("ClassName", "CS 465");
-//        classButton.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View view) {
-//                startActivity(intent);
-//            }
-//        });
     }
 }

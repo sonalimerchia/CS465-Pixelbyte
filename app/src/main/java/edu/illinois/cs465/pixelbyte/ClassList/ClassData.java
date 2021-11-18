@@ -42,6 +42,14 @@ public class ClassData {
         categories_ = new ArrayList<>();
     }
 
+    public String makeGradeString() {
+        return (Math.round(numberGrade_ * 100) / 100.0) + "%";
+    }
+
+    public String makeGoalString() {
+        return (Math.round(goal_ * 100) / 100.0) + "%";
+    }
+
     public static ClassData extract(Intent intent) {
         String cn = intent.getExtras().getString("ClassName");
         String lg = intent.getExtras().getString("LetterGrade");

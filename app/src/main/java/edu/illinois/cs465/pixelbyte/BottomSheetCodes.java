@@ -5,5 +5,6 @@ public enum BottomSheetCodes {
     FindTemplate,
     PreviewTemplate,
     NewTemplatePreview,
-    AddCategory
+    AddCategory,
+    AddAssignment
 }

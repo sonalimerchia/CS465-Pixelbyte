@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
@@ -38,5 +39,11 @@ public class ClassActivity extends AppCompatActivity {
         classData_ = ClassData.extract(getIntent());
 
         this.setTitle(classData_.className_);
+
+        TextView grade = (TextView) findViewById(R.id.numgrade);
+        grade.setText(classData_.makeGradeString());
+
+        TextView goal = (TextView) findViewById(R.id.goal);
+        goal.setText(classData_.makeGoalString());
     }
 }
