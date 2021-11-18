@@ -1,105 +1,73 @@
 package edu.illinois.cs465.pixelbyte;
 
-import androidx.appcompat.app.AppCompatActivity;
-import edu.illinois.cs465.pixelbyte.categoryCreation.CategoryArrayAdapter;
-import edu.illinois.cs465.pixelbyte.categoryCreation.TemplateCategory;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-/* This is the first activity page to create a Class Object.
-TODO: Navigation + Passing information back to Home Screen
- */
-public class CreateClass extends BottomSheetDialogFragment {
-    BottomSheetDialogFragment openDialog;
-    // Text Views
-    private TextView nextLable;
+public class CreateClass extends BottomSheetDialogFragment implements View.OnClickListener {
+    //BottomSheetDialogFragment openDialog;
+    int color_;
 
-    // EditText Views
-    private EditText courseNameInput;
-
-    // Button Views
-    private Button redButton;
-    private Button greenButton;
-    private Button blueButton;
-
-    // Image Views
-    private ImageView nextArrow;
-
-    // Spinner (Drop Down Menu)
-    private Spinner courseDeptSpinner;
-
-
-    public static CreateClass newInstance() {
-        return new CreateClass();
-    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Set bottom sheet contents
         super.onCreate(savedInstanceState);
-        View view = inflater.inflate(R.layout.activity_create_new_template, container, false);
+        View view = inflater.inflate(R.layout.activity_create_class, container, false);
 
-        /* instantiate views and attach listeners */
-        //EditText
-        courseNameInput = (EditText) view.findViewById(R.id.course_edit_name);
-        courseNameInput.setAllCaps(false);
-        courseNameInput.setHint(R.string.course_name_hint);
+        color_ = 0xffff0000;
 
         //Color Buttons
-        redButton = (Button) view.findViewById(R.id.red_button);
-        greenButton = (Button) view.findViewById(R.id.green_button);
-        blueButton = (Button) view.findViewById(R.id.blue_button);
+        view.findViewById(R.id.red_button).setOnClickListener(this);
+        view.findViewById(R.id.yellow_button).setOnClickListener(this);
+        view.findViewById(R.id.green_button).setOnClickListener(this);
+        view.findViewById(R.id.blue_button).setOnClickListener(this);
 
-        //TODO: Custom Color selector button.
-
-        redButton.setOnClickListener((View.OnClickListener) this);
-        greenButton.setOnClickListener((View.OnClickListener) this);
-        blueButton.setOnClickListener((View.OnClickListener) this);
-
-        //Navigation Buttons
-        nextLable = (TextView) view.findViewById(R.id.next_label);
-        nextArrow = (ImageView) view.findViewById(R.id.next_arrow);
-
-        nextLable.setOnClickListener((View.OnClickListener) this);
-        nextArrow.setOnClickListener((View.OnClickListener) this);
-
-        //Spinner (Drop-down menu)
-        courseDeptSpinner = (Spinner) view.findViewById(R.id.course_dept_spinner);
-        courseDeptSpinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
-
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(((CreateClass) this).getContext(),
-                R.array.class_departments_array, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
+        //Select Course Department (Drop-down menu)
+        Spinner spinner = (Spinner) view.findViewById(R.id.department_selector);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(view.getContext(),
+                R.array.departments_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        courseDeptSpinner.setAdapter(adapter);
+        spinner.setAdapter(adapter);
+
+        //Next Button
+        View nextButton = view.findViewById(R.id.to_template_finder);
+        //ImageView nextArrow = view.findViewById(R.id.next_arrow_to_template);
+        //nextArrow.setOnClickListener(this);
+
+        if (nextButton != null) {
+            nextButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onClose();
+                }
+            });
+        }
 
         return view;
     }
 
-    private void openDialog(BottomSheetCodes code, String bottomSheetName) {
-        switch (code) {
-            case NewTemplatePreview:
-                openDialog = new CreateNewTemplate();
-                break;
-            case AddCategory:
-                openDialog = new AddCategory();
-                break;
-        }
-
-        openDialog.show(getSupportFragmentManager(), bottomSheetName);
+    public void onClick(View v) {
+        if (v.getId() == R.id.red_button) color_ = 0xffff0000;
+        else if (v.getId() == R.id.yellow_button) color_ = 0xffffff00;
+        else if (v.getId() == R.id.green_button) color_ = 0xff00ff00;
+        else if (v.getId() == R.id.blue_button) color_ = 0xff0000ff;
     }
+
+    public void onClose() {
+        MainActivity m = (MainActivity) getActivity();
+
+        String name = ((TextView) this.getView().findViewById(R.id.class_name_input)).getText().toString();
+        Spinner selector = (Spinner)(this.getView().findViewById(R.id.department_selector));
+        String department = selector.toString();
+        m.startNewClass(name, color_, department);
+        m.openDialog(BottomSheetCodes.FindTemplate, "Find Template");
+    }
+
 }

@@ -10,18 +10,18 @@
     <string name="delete">Delete</string>
     <string name="cancel">Cancel</string>
 
-    <!-- Strings used for Create New Class Activity -->
+    <!-- Strings used for Create Class Activity -->
     <string name="title_activity_add_course">Add Course</string>
     <string name="course_name_label">Name</string>
-    <string name="course_name_hint">Enter Name Here</string>
+    <string name="course_name_hint">ex) CS 125</string>
     <string name="course_color_label">Color</string>
     <string name="course_weight_label">Weight</string>
     <string name="course_department_label">Department</string>
 
     <string name="rec_templates_label">Recommended Templates</string>
 
-    <!-- Strings used for Select Template Activity -->
-    <string name="make_template_button_label">Make New Template</string>
+    <!-- Strings used for Find Template Activity -->
+    <string name="create_template_button_label">Create New Template</string>
     <string name="title_activity_profile">Profile</string>
 
     <string name="first_fragment_label">First Fragment</string>
@@ -32,7 +32,8 @@
     <string name="hello_first_fragment">Hello first fragment</string>
 
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string-array name="class_departments_array">
+
+    <string-array name="departments_array">
         <item>AAS - Asian American Studies</item>
         <item>ABE - Agricultural and Biological Eng</item>
         <item>ACCY - Accountancy</item>

@@ -1,75 +1,28 @@
 package edu.illinois.cs465.pixelbyte;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-import java.io.FileInputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import edu.illinois.cs465.pixelbyte.CategoryList.ClassCategoryAdapter;
+import edu.illinois.cs465.pixelbyte.ClassStructures.Assignment;
+import edu.illinois.cs465.pixelbyte.ClassStructures.ClassData;
+import edu.illinois.cs465.pixelbyte.ClassStructures.TemplateCategory;
+import edu.illinois.cs465.pixelbyte.categoryCreation.CategoryArrayAdapter;
 
 public class ClassActivity extends AppCompatActivity {
-    TextView percentageView;
-    TextView goalView;
-    LinearLayout assignmentLayout;
-    Button helpButton;
-    Button weightsButton;
     BottomSheetDialogFragment openDialog;
-
-
-    String goalStr;
-    String helpStr;
-
-    String classname;
-
-    ArrayList<String> catList = new ArrayList<>();
-    HashMap<String, String> weightMap = new HashMap<>();
-
-    private void readIn() {
-        switch (classname) {
-            case "CS 125":
-                goalStr = "91%";
-                helpStr = "";
-                percentageView.setText("90%");
-                catList.add("Quizzes");
-                catList.add("Tests");
-                catList.add("Homeworks");
-                break;
-            case "CS 126":
-                goalStr = "90%";
-                helpStr = "";
-                percentageView.setText("92.4%");
-                catList.add("Projects");
-                catList.add("Tests");
-                break;
-            case "CS 225":
-                goalStr = "88%";
-                helpStr = "";
-                percentageView.setText("84.2%");
-                catList.add("MPs");
-                catList.add("Tests");
-                catList.add("Homeworks");
-                break;
-        }
-        goalView.setText(goalStr);
-
-    }
-
-    public void clickedNew(View view) {
-        openDialog("New Category");
-    }
+    ClassCategoryAdapter adapter;
+    ClassData classData_;
 
     private void openDialog(String bottomSheetName) {
-        openDialog = new AddCategory();
+        openDialog = new AddAssignment(classData_.categories_);
         openDialog.show(getSupportFragmentManager(), bottomSheetName);
     }
 
@@ -77,28 +30,41 @@ public class ClassActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class);
-        goalView = (TextView) findViewById(R.id.GoalTextBox);
-        percentageView = (TextView) findViewById(R.id.PercentageTextBox);
-        assignmentLayout = (LinearLayout) findViewById(R.id.AssignmentLayout);
-        helpButton = (Button) findViewById(R.id.helpButton);
-        weightsButton = (Button) findViewById(R.id.weightsButton);
 
-        classname = getIntent().getExtras().getString("ClassName");
-        this.setTitle(classname);
-        readIn();
-        for (String eachStr : catList) {
-            Button b = new Button(this);
-            b.setText(eachStr);
-            assignmentLayout.addView(b);
-            Intent intent = new Intent(this, AssignmentViewActivity.class);
-            intent.putExtra("ClassName", classname);
-            intent.putExtra("Category", eachStr);
-            b.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View view) {
-                    startActivity(intent);
-                }
-            });
+        Bundle extras = getIntent().getExtras();
+        classData_ = ClassData.extract(extras);
+
+        this.setTitle(classData_.className_);
+
+        TextView grade = (TextView) findViewById(R.id.numgrade);
+        grade.setText(classData_.makeGradeString());
+
+        TextView goal = (TextView) findViewById(R.id.goal);
+        goal.setText(classData_.makeGoalString());
+
+        CardView addButton = (CardView) findViewById(R.id.create_assignment);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                openDialog("Add Assignment");
+            }
+        });
+
+        // Create adapter to interpret data
+        ListView categories = (ListView) findViewById(R.id.category_list);
+        adapter = new ClassCategoryAdapter(this, classData_.categories_);
+
+        // Apply adapter to list
+        categories.setAdapter(adapter);
+    }
+
+    public void addAssignment(Assignment a, String category) {
+        for (TemplateCategory tc : classData_.categories_) {
+            if (tc.name_.equals(category)) {
+                tc.enteredAssignments_.add(a);
+                break;
+            }
         }
 
+        adapter.notifyDataSetChanged();
     }
 }

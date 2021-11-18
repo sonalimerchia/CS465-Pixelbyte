@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:paddingHorizontal="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="50dp"
+
+    tools:context=".FindTemplate">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="30dp"
+        android:id="@+id/options_bar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_svgrepo_com"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:padding="10dp"
+            android:contentDescription="@string/back"
+            />
+
+        <TextView
+            style="@style/BotDialogHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/back_button"
+            android:layout_alignBottom="@id/back_button"
+            android:gravity="center"
+            android:text="@string/title_activity_add_course" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="top"
+        android:id="@+id/templates_list_container"
+        app:layout_constraintTop_toBottomOf="@id/options_bar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recommended Templates"
+            android:layout_marginBottom="10dp"
+            style="@style/BotDialogHeader"
+            />
+
+        <ListView
+            android:id="@+id/recommended_templates"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:divider="@color/transparent"
+            android:dividerHeight="1dp"
+            />
+    </LinearLayout>
+
+    <!-- Create New Template Button -->
+    <Button
+        android:id="@+id/create_new_template"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="@string/create_template_button_label"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_marginVertical="10dp"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/templates_list_container"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <LinearLayout
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/create_new_template"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="25dp"
+        android:paddingHorizontal="15dp"
+        android:paddingBottom="15dp">
+
+        <ProgressBar
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:progressBackgroundTint="@color/gray"
+            android:progressTint="@color/purple_500"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="2"
+            android:progress="25" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:paddingStart="0dp"
+            android:paddingEnd="10dp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

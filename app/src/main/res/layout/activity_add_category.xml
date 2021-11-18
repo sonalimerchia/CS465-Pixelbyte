@@ -116,17 +116,16 @@
             android:layout_alignParentStart="true"
             android:layout_below="@id/number_label"
             />
-        
+
         <EditText
             android:id="@+id/assignments_input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:layout_alignParentEnd="true"
-            android:minEms="4"
             android:gravity="right"
             android:hint="0"
-            />
+            android:inputType="number"
+            android:minEms="4" />
 
     </RelativeLayout>
 
@@ -157,13 +156,12 @@
             android:id="@+id/drops_input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
             android:gravity="right"
-            android:minEms="4"
             android:hint="0"
-            />
+            android:inputType="number"
+            android:minEms="4" />
 
     </RelativeLayout>
 

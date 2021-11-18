@@ -35,12 +35,12 @@
                 />
 
             <TextView
+                android:id="@+id/template_name_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@id/back_button"
                 android:layout_alignBottom="@id/back_button"
-                android:gravity="center"
-                android:text="@string/new_template" />
+                android:gravity="center" />
 
         </RelativeLayout>
 
@@ -57,19 +57,10 @@
                 />
 
             <ListView
-                android:id="@+id/template_in_progress"
+                android:id="@+id/template"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                />
-
-            <TextView
-                android:id="@+id/add_category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/category"
-                android:drawablePadding="10dp"
-                app:drawableStartCompat="@drawable/ic_add_svgrepo_com"
                 />
         </LinearLayout>
 
@@ -77,37 +68,30 @@
 
     <LinearLayout
         app:layout_constraintBaseline_toBottomOf="parent"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:paddingTop="25dp"
         android:paddingHorizontal="15dp"
         android:paddingBottom="15dp">
 
-        <ProgressBar
-            style="@android:style/Widget.ProgressBar.Horizontal"
-            android:progressBackgroundTint="@color/gray"
-            android:progressTint="@color/purple_500"
+        <Button
+            android:id="@+id/edit_template_button"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_weight="2"
-            android:progress="50" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/finish_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
             android:layout_weight="1"
-            android:gravity="end"
-            android:paddingStart="0dp"
-            android:paddingEnd="10dp"
-            android:text="@string/finish" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:text="Edit Template"/>
+
+        <Button
+            android:id="@+id/use_template_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:text="Use Template"/>
     </LinearLayout>
 </LinearLayout>
