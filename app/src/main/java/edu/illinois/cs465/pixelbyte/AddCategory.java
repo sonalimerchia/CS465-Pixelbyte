@@ -1,7 +1,5 @@
 package edu.illinois.cs465.pixelbyte;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +11,6 @@ import android.widget.TextView;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.slider.LabelFormatter;
 import com.google.android.material.slider.Slider;
-
-import edu.illinois.cs465.pixelbyte.categoryCreation.CategoryArrayAdapter;
-import edu.illinois.cs465.pixelbyte.categoryCreation.TemplateCategory;
 
 public class AddCategory extends BottomSheetDialogFragment {
     Slider weightSlider;

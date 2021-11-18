@@ -10,12 +10,10 @@ import android.widget.ListView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import edu.illinois.cs465.pixelbyte.ClassList.ClassData;
+import edu.illinois.cs465.pixelbyte.ClassStructures.ClassData;
 import edu.illinois.cs465.pixelbyte.RecommendedTemplateList.RecommendedTemplateAdapter;
-import edu.illinois.cs465.pixelbyte.categoryCreation.TemplateCategory;
 
 public class FindTemplate extends BottomSheetDialogFragment {
     ListView recommendedTemplates_;

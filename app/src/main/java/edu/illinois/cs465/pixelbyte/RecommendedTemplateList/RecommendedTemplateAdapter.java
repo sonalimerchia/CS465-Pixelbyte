@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import edu.illinois.cs465.pixelbyte.ClassList.ClassData;
+import edu.illinois.cs465.pixelbyte.ClassStructures.ClassData;
 import edu.illinois.cs465.pixelbyte.MainActivity;
 import edu.illinois.cs465.pixelbyte.R;
 

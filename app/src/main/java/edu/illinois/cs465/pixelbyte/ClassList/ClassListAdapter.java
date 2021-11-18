@@ -11,6 +11,7 @@ import androidx.cardview.widget.CardView;
 
 import java.util.List;
 
+import edu.illinois.cs465.pixelbyte.ClassStructures.ClassData;
 import edu.illinois.cs465.pixelbyte.R;
 
 public class ClassListAdapter extends ArrayAdapter<ClassData> {

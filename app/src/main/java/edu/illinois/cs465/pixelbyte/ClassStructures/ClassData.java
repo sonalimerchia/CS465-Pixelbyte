@@ -1,11 +1,10 @@
-package edu.illinois.cs465.pixelbyte.ClassList;
+package edu.illinois.cs465.pixelbyte.ClassStructures;
 
 import android.content.Intent;
+import android.os.Bundle;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import edu.illinois.cs465.pixelbyte.categoryCreation.TemplateCategory;
 
 public class ClassData {
     public String className_;
@@ -51,13 +50,22 @@ public class ClassData {
     }
 
     public static ClassData extract(Intent intent) {
-        String cn = intent.getExtras().getString("ClassName");
-        String lg = intent.getExtras().getString("LetterGrade");
-        double ng = intent.getExtras().getDouble("NumberGrade");
-        double gol = intent.getExtras().getDouble("Goal");
-        int col = intent.getExtras().getInt("Color");
+        Bundle extras = intent.getExtras();
 
-        return new ClassData(cn, lg, ng, col, gol);
+        String cn = extras.getString("ClassName");
+        String lg = extras.getString("LetterGrade");
+        double ng = extras.getDouble("NumberGrade");
+        double gol = extras.getDouble("Goal");
+        int col = extras.getInt("Color");
+
+        ClassData cd = new ClassData(cn, lg, ng, col, gol);
+
+        int numCategories = extras.getInt("NumCategories");
+        for (int idx = 0; idx < numCategories; ++idx) {
+            cd.categories_.add(TemplateCategory.extract(intent, idx));
+        }
+
+        return cd;
     }
 
     public void addToIntent(Intent intent) {
@@ -66,6 +74,11 @@ public class ClassData {
         intent.putExtra("NumberGrade", numberGrade_);
         intent.putExtra("Goal", goal_);
         intent.putExtra("Color", color_);
+
+        intent.putExtra("NumCategories", categories_.size());
+        for (int idx = 0; idx < categories_.size(); ++idx) {
+            categories_.get(idx).addToIntent(intent, idx);
+        }
     }
 
     public static List<ClassData> createSampleList() {
@@ -83,8 +96,6 @@ public class ClassData {
     }
 
     private static void addCategories(ClassData cd) {
-        cd.categories_.add(new TemplateCategory("Quizzes", 20.5, 2, 13));
-        cd.categories_.add(new TemplateCategory("Homework", 15.0, 5, 25));
-        cd.categories_.add(new TemplateCategory("Exams", 33.3, 0, 3));
+        cd.categories_ = TemplateCategory.createItems();
     }
 }

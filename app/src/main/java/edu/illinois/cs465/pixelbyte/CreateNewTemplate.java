@@ -1,20 +1,19 @@
 package edu.illinois.cs465.pixelbyte;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+import java.util.List;
+
 import edu.illinois.cs465.pixelbyte.categoryCreation.CategoryArrayAdapter;
-import edu.illinois.cs465.pixelbyte.categoryCreation.TemplateCategory;
+import edu.illinois.cs465.pixelbyte.ClassStructures.TemplateCategory;
 
 public class CreateNewTemplate extends BottomSheetDialogFragment {
     ListView template;
@@ -26,7 +25,7 @@ public class CreateNewTemplate extends BottomSheetDialogFragment {
         View view = inflater.inflate(R.layout.activity_create_new_template, container, false);
 
         // Create items from sample data
-        TemplateCategory[] items = TemplateCategory.createItems();
+        List<TemplateCategory> items = TemplateCategory.createItems();
 
         // Create adapter to interpret data
         template = view.findViewById(R.id.template_in_progress);

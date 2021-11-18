@@ -7,12 +7,15 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.util.List;
+
+import edu.illinois.cs465.pixelbyte.ClassStructures.TemplateCategory;
 import edu.illinois.cs465.pixelbyte.R;
 
 public class CategoryArrayAdapter extends ArrayAdapter<TemplateCategory> {
     int viewType_;
 
-    public CategoryArrayAdapter(Context context, TemplateCategory[] categories, int id) {
+    public CategoryArrayAdapter(Context context, List<TemplateCategory> categories, int id) {
         super(context, 0, categories);
         viewType_ = id;
     }
@@ -48,26 +51,26 @@ public class CategoryArrayAdapter extends ArrayAdapter<TemplateCategory> {
 
         // Update name label
         if (nameLabel != null) {
-            nameLabel.setText(category.name);
+            nameLabel.setText(category.name_);
         }
 
         // Update weight label
         if (weightLabel != null) {
-            double weight = Math.round(category.weight * 100)/100.0;
+            double weight = Math.round(category.weight_ * 100)/100.0;
             weightLabel.setText(""+weight+"%");
         }
 
         // Update number of drops label
-        if (dropLabel != null && category.drops != 0) {
-            String result = ""+category.drops+" drop"+(category.drops < 2 ? "" : "s");
+        if (dropLabel != null && category.drops_ != 0) {
+            String result = ""+category.drops_ +" drop"+(category.drops_ < 2 ? "" : "s");
             dropLabel.setText(result);
         } else {
             dropLabel.setHeight(0);
         }
 
         // Update number of assignments label
-        if (assignmentLabel != null && category.assignments != 0) {
-            String result = ""+category.assignments+" assignment"+(category.assignments < 2 ? "" : "s");
+        if (assignmentLabel != null && category.assignments_ != 0) {
+            String result = ""+category.assignments_ +" assignment"+(category.assignments_ < 2 ? "" : "s");
             assignmentLabel.setText(result);
         } else {
             assignmentLabel.setHeight(0);

@@ -1,7 +1,5 @@
 package edu.illinois.cs465.pixelbyte;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +11,10 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+import java.util.List;
+
 import edu.illinois.cs465.pixelbyte.categoryCreation.CategoryArrayAdapter;
-import edu.illinois.cs465.pixelbyte.categoryCreation.TemplateCategory;
+import edu.illinois.cs465.pixelbyte.ClassStructures.TemplateCategory;
 
 public class PreviewTemplate extends BottomSheetDialogFragment {
     String className_;
@@ -29,7 +29,7 @@ public class PreviewTemplate extends BottomSheetDialogFragment {
         title.setText(className_);
 
         ListView template = (ListView) view.findViewById(R.id.template);
-        TemplateCategory[] items = TemplateCategory.createItems();
+        List<TemplateCategory> items = TemplateCategory.createItems();
 
         // Create adapter to interpret data
         CategoryArrayAdapter arr = new CategoryArrayAdapter(view.getContext(), items, R.layout.template_list_item);

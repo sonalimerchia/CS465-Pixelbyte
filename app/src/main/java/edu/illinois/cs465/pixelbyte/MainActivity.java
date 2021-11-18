@@ -12,7 +12,7 @@ import java.util.List;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-import edu.illinois.cs465.pixelbyte.ClassList.ClassData;
+import edu.illinois.cs465.pixelbyte.ClassStructures.ClassData;
 import edu.illinois.cs465.pixelbyte.ClassList.ClassListAdapter;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
