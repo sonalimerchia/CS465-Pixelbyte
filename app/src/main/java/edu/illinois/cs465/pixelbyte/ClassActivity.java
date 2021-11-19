@@ -3,8 +3,10 @@ package edu.illinois.cs465.pixelbyte;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -55,6 +57,19 @@ public class ClassActivity extends AppCompatActivity {
 
         // Apply adapter to list
         categories.setAdapter(adapter);
+
+        // Create predictor
+        Button predictButton;
+        // Predictor
+        predictButton = (Button) findViewById(R.id.predictor);
+        Intent predictIntent = new Intent(this, Predictor.class);
+        classData_.addToIntentPredictor(predictIntent);
+        predictButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(predictIntent);
+            }
+        });
     }
 
     public void addAssignment(Assignment a, String category) {
