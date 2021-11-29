@@ -9,4 +9,26 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00FFFFFF</color>
+
+    <!--UIUC Blues-->
+    <color name="uiuc_primary_blue">#FF13294B</color>
+    <color name="uiuc_header_blue">#FF1F4096</color>
+    <color name="uiuc_subheader_blue">#FF0455A4</color>
+
+    <!--UIUC Neutrals (white/grays)-->
+    <color name="neutral">#FFE8E9EA</color>
+    <color name="neutral2">#FFA5A8AA</color>
+    <color name="neutral3">#5E6669</color>
+
+    <!--UIUC Orange-->
+    <color name="uiuc_orange">#FFE84A27</color>
+
+    <!--UIUC Accent Colors-->
+    <color name="uiuc_teal">#FF0D605E</color>
+    <color name="uiuc_gray_blue">#FF6FAFC7</color>
+    <color name="uiuc_citron">#FFBFD46D</color>
+    <color name="uiuc_dark_yellow">#FFFFD125</color>
+    <color name="uiuc_salmon">#FFEE5E5E</color>
+    <color name="uiuc_periwinkle">#FF4F6898</color>
+
 </resources>

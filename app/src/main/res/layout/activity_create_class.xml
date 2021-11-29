@@ -96,7 +96,7 @@
                         android:id="@+id/red_button"
                         style="@style/RoundedTextButton"
                         android:background="@drawable/circle_background"
-                        android:backgroundTint="#FFFF0000"
+                        android:backgroundTint="@color/uiuc_salmon"
                         android:text="R"
                         />
                 </LinearLayout>
@@ -113,7 +113,7 @@
                         style="@style/RoundedTextButton"
                         android:id="@+id/yellow_button"
                         android:background="@drawable/circle_background"
-                        android:backgroundTint="#FFFFFF00"
+                        android:backgroundTint="@color/uiuc_dark_yellow"
                         android:text="Y"
                         />
                 </LinearLayout>
@@ -130,7 +130,7 @@
                         style="@style/RoundedTextButton"
                         android:id="@+id/green_button"
                         android:background="@drawable/circle_background"
-                        android:backgroundTint="#FF00FF00"
+                        android:backgroundTint="@color/uiuc_citron"
                         android:text="G"
                         />
                 </LinearLayout>
@@ -147,7 +147,7 @@
                         style="@style/RoundedTextButton"
                         android:id="@+id/blue_button"
                         android:background="@drawable/circle_background"
-                        android:backgroundTint="#FF0000FF"
+                        android:backgroundTint="@color/uiuc_gray_blue"
                         android:text="B"
                         />
                 </LinearLayout>
