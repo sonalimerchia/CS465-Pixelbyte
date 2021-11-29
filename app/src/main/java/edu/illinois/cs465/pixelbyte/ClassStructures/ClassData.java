@@ -95,6 +95,16 @@ public class ClassData {
         }
     }
 
+    public void addToIntentPredictor(Intent intent) {
+        ArrayList<String> catList = new ArrayList<>();
+        for (TemplateCategory tc : categories_) {
+            catList.add(tc.name_);
+        }
+        intent.putExtra("Categories", catList);
+        intent.putExtra("Goal", goal_);
+        intent.putExtra("Percentage", numberGrade_);
+    }
+
     public static List<ClassData> createSampleList() {
         List<ClassData> classes = new ArrayList<>();
 
