@@ -1,10 +1,14 @@
 package edu.illinois.cs465.pixelbyte.ClassStructures;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.Object;
+
+import edu.illinois.cs465.pixelbyte.R;
 
 public class ClassData {
     public String className_;
@@ -108,9 +112,9 @@ public class ClassData {
     public static List<ClassData> createSampleList() {
         List<ClassData> classes = new ArrayList<>();
 
-        classes.add(new ClassData("CS 125", "A", 95.5, 0xffffff00, 90.0));
-        classes.add(new ClassData("CS 465", "C+", 78.9, 0xff00ff00, 90.0));
-        classes.add(new ClassData("CS 233", "B-", 83.9, 0xff00ffff, 80.0));
+        classes.add(new ClassData("CS 125", "A", 95.5, 0xFFBFD46D, 90.0));
+        classes.add(new ClassData("CS 465", "C+", 78.9, 0xFFEE5E5E, 90.0));
+        classes.add(new ClassData("CS 233", "B-", 83.9, 0xFF4F6898, 80.0));
 
         addCategories(classes.get(0));
         addCategories(classes.get(1));

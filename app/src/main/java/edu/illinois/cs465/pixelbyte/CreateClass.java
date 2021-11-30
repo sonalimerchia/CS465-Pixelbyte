@@ -54,10 +54,10 @@ public class CreateClass extends BottomSheetDialogFragment implements View.OnCli
     }
 
     public void onClick(View v) {
-        if (v.getId() == R.id.red_button) color_ = 0xffff0000;
-        else if (v.getId() == R.id.yellow_button) color_ = 0xffffff00;
-        else if (v.getId() == R.id.green_button) color_ = 0xff00ff00;
-        else if (v.getId() == R.id.blue_button) color_ = 0xff0000ff;
+        if (v.getId() == R.id.red_button) color_ = 0xFFEE5E5E;
+        else if (v.getId() == R.id.yellow_button) color_ = 0xFFFFD125;
+        else if (v.getId() == R.id.green_button) color_ = 0xFFBFD46D;
+        else if (v.getId() == R.id.blue_button) color_ = 0xFF6FAFC7;
     }
 
     public void onClose() {

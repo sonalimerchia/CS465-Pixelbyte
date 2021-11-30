@@ -10,6 +10,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00FFFFFF</color>
 
+    <!-- From https://www.uillinois.edu/OUR/brand/color_palettes -->
     <!--UIUC Blues-->
     <color name="uiuc_primary_blue">#FF13294B</color>
     <color name="uiuc_header_blue">#FF1F4096</color>
@@ -30,5 +31,14 @@
     <color name="uiuc_dark_yellow">#FFFFD125</color>
     <color name="uiuc_salmon">#FFEE5E5E</color>
     <color name="uiuc_periwinkle">#FF4F6898</color>
+
+    <!-- Accent Gradients -->
+    <!-- used https://mycolor.space/ -->
+    <color name="teal_gradient">#FF20816E</color>
+    <color name="gray_blue_gradient">#FF56C4CE</color>
+    <color name="citron_gradient">#FF79BE79</color>
+    <color name="dark_yellow_gradient">#FF97C544</color>
+    <color name="salmon_gradient">#FFCF5480</color>
+    <color name="periwinkle_gradient">#FF008CBA</color>
 
 </resources>

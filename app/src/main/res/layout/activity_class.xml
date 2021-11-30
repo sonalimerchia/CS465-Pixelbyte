@@ -82,7 +82,7 @@
             android:gravity="center_horizontal"
             android:layout_marginHorizontal="50dp"
             android:padding="10dp"
-            android:background="@color/design_default_color_primary"
+            android:background="@color/uiuc_subheader_blue"
             android:textColor="@color/white"
             android:text="Get Help" />
 
@@ -105,7 +105,6 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="50dp"
-            android:background="#FF9F9F9F"
             android:text="View Weights" />
 
         <Button
@@ -115,7 +114,6 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="50dp"
-            android:background="#FF9F9F9F"
             android:text="Predict Grades" />
     </LinearLayout>
 
@@ -132,7 +130,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/purple_500"
+        app:cardBackgroundColor="@color/uiuc_orange"
         app:cardCornerRadius="100dp"
         android:padding="50dp"
         app:cardElevation="10dp"
