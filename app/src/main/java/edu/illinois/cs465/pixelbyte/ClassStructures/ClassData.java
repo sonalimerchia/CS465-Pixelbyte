@@ -44,9 +44,11 @@ public class ClassData {
         letterGrade_ = "";
         numberGrade_ = 0;
         color_ = color;
+        department_ = department;
         goal_ = 0;
-
         categories_ = new ArrayList<>();
+
+        System.out.printf("%x", color_);
     }
 
     public ClassData(String classname, String let, double num, int col, double gol) {

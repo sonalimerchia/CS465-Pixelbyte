@@ -95,8 +95,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void startNewClass(String name, int color, String department) {
         inProgress_ = new ClassData(name, color, department);
-    }
 
+    }
 
     public void finishTemplate() {
         classes.add(inProgress_);

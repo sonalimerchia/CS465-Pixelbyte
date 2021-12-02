@@ -54,7 +54,7 @@ public class CreateNewTemplate extends BottomSheetDialogFragment {
             }
         });
 
-        // Set up finish button TODO: send data when you click this
+        // Set up finish button
         TextView finish = (TextView) view.findViewById(R.id.finish_text);
         finish.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

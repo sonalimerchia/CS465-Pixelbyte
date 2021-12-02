@@ -58,7 +58,7 @@ public class CreateClass extends BottomSheetDialogFragment implements View.OnCli
         currentColor_ = (TextView) v;
     }
 
-    private int getColor(TextView b) {
+    private int getColorId(TextView b) {
         if (b.getId() == R.id.red_button) return R.color.uiuc_salmon;
         else if (b.getId() == R.id.yellow_button) return R.color.uiuc_dark_yellow;
         else if (b.getId() == R.id.green_button) return R.color.uiuc_citron;
@@ -72,7 +72,9 @@ public class CreateClass extends BottomSheetDialogFragment implements View.OnCli
         String name = ((TextView) this.getView().findViewById(R.id.class_name_input)).getText().toString();
         Spinner selector = (Spinner)(this.getView().findViewById(R.id.department_selector));
         String department = selector.toString();
-        m.startNewClass(name, getColor(currentColor_), department);
+
+        int colorId = getColorId(currentColor_);
+        m.startNewClass(name, getResources().getColor(colorId), department);
         m.openDialog(BottomSheetCodes.FindTemplate, "Find Template");
     }
 
