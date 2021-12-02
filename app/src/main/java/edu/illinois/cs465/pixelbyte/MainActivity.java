@@ -3,6 +3,7 @@ package edu.illinois.cs465.pixelbyte;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.DialogFragment;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -171,5 +172,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         inProgress_.saveData(this);
         classes.add(inProgress_);
         adapter.notifyDataSetChanged();
+    }
+
+
+    public void openTutoringDialog(String department) {
+        DialogFragment df = new TutoringInformationFragment(department);
+        df.show(getSupportFragmentManager(), "Tutoring Name");
     }
 }

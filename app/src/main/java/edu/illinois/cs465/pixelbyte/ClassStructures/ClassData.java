@@ -26,26 +26,6 @@ public class ClassData {
 
     private List<TemplateCategory> categories_;
 
-    public ClassData(String classname, String let) {
-        className_ = classname;
-        letterGrade_ = let;
-        department_ = "";
-        numberGrade_ = 0;
-        color_ = 0;
-        goal_ = 0;
-        categories_ = new ArrayList<>();
-    }
-
-    public ClassData(String classname, String let, int col) {
-        className_ = classname;
-        letterGrade_ = let;
-        color_ = col;
-        department_ = "";
-        numberGrade_ = 0;
-        goal_ = 0;
-        categories_ = new ArrayList<>();
-    }
-
     public ClassData(String classname, int color, String department) {
         className_ = classname;
         color_ = color;
@@ -56,12 +36,12 @@ public class ClassData {
         categories_ = new ArrayList<>();
     }
 
-    public ClassData(String classname, String let, int col, double gol) {
+    public ClassData(String classname, String let, int col, double gol, String department) {
         className_ = classname;
         letterGrade_ = let;
         color_ = col;
         goal_ = gol;
-        department_ = "";
+        department_ = department;
         numberGrade_ = 0;
         categories_ = new ArrayList<>();
     }
@@ -101,8 +81,9 @@ public class ClassData {
         double ng = extras.getDouble("NumberGrade");
         double gol = extras.getDouble("Goal");
         int col = extras.getInt("Color");
+        String dep = extras.getString("Department");
 
-        ClassData cd = new ClassData(cn, lg, col, gol);
+        ClassData cd = new ClassData(cn, lg, col, gol, dep);
 
         int numCategories = extras.getInt("NumCategories");
         for (int idx = 0; idx < numCategories; ++idx) {
@@ -120,6 +101,7 @@ public class ClassData {
         intent.putExtra("NumberGrade", numberGrade_);
         intent.putExtra("Goal", goal_);
         intent.putExtra("Color", color_);
+        intent.putExtra("Department", department_);
 
         intent.putExtra("NumCategories", categories_.size());
         for (int idx = 0; idx < categories_.size(); ++idx) {
@@ -130,9 +112,9 @@ public class ClassData {
     public static List<ClassData> createSampleList(MainActivity parent) {
         List<ClassData> classes = new ArrayList<>();
 
-        classes.add(new ClassData("CS 125", "A", 0xFF6FAFC7, 90.0));
-        classes.add(new ClassData("CS 465", "C+", 0xFFFFD125, 90.0));
-        classes.add(new ClassData("CS 233", "B-", 0xFFBFD46D, 80.0));
+        classes.add(new ClassData("CS 125", "A", 0xFF6FAFC7, 90.0, "CS"));
+        classes.add(new ClassData("CS 465", "C+", 0xFFFFD125, 90.0, "CS"));
+        classes.add(new ClassData("CS 233", "B-", 0xFFBFD46D, 80.0, "CS"));
 
         addCategories(classes.get(0));
         addCategories(classes.get(1));

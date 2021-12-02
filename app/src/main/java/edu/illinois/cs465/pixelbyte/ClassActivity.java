@@ -3,6 +3,7 @@ package edu.illinois.cs465.pixelbyte;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.DialogFragment;
 
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
@@ -69,6 +70,14 @@ public class ClassActivity extends AppCompatActivity {
 
         TextView goal = (TextView) findViewById(R.id.goal);
         goal.setText(classData_.makeGoalString());
+
+        TextView getHelp = (TextView) findViewById(R.id.get_help);
+        getHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openTutoringDialog();
+            }
+        });
     }
 
     private void setWindowFrameColors() {
@@ -135,6 +144,11 @@ public class ClassActivity extends AppCompatActivity {
         int color = getResources().getColor(colorId);
         weightButton.setBackgroundColor(color);
         predictButton.setBackgroundColor(color);
+    }
+
+    public void openTutoringDialog() {
+        DialogFragment df = new TutoringInformationFragment(classData_.department_);
+        df.show(getSupportFragmentManager(), "Tutoring Name");
     }
 
     @Override
