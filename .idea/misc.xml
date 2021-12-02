@@ -33,6 +33,7 @@
         <entry key="app/src/main/res/drawable/ic_cancel_svgrepo_com.xml" value="0.20461538461538462" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.20461538461538462" />
         <entry key="app/src/main/res/drawable/rounded_corners.xml" value="0.22552083333333334" />
+        <entry key="app/src/main/res/layout/activity_add_assignment.xml" value="0.13518518518518519" />
         <entry key="app/src/main/res/layout/activity_add_category.xml" value="0.10280797101449275" />
         <entry key="app/src/main/res/layout/activity_class.xml" value="0.1717325227963526" />
         <entry key="app/src/main/res/layout/activity_create_class.xml" value="0.125" />
@@ -59,6 +60,7 @@
         <entry key="app/src/main/res/layout/list_elem.xml" value="0.11096014492753623" />
         <entry key="app/src/main/res/layout/new_template_layout_dialog.xml" value="0.1638888888888889" />
         <entry key="app/src/main/res/layout/predictor.xml" value="0.10552536231884058" />
+        <entry key="app/src/main/res/layout/predictor_list_element.xml" value="0.36049382716049383" />
         <entry key="app/src/main/res/layout/recommended_template_item.xml" value="0.125" />
       </map>
     </option>

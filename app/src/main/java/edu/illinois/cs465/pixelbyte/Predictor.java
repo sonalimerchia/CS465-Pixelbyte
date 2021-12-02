@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
@@ -20,6 +21,7 @@ import java.util.List;
 
 import edu.illinois.cs465.pixelbyte.ClassStructures.ClassData;
 import edu.illinois.cs465.pixelbyte.ClassStructures.TemplateCategory;
+import edu.illinois.cs465.pixelbyte.PredictorList.PredictorCategoryAdapter;
 
 public class Predictor extends AppCompatActivity {
 
@@ -32,10 +34,9 @@ public class Predictor extends AppCompatActivity {
         setContentView(R.layout.predictor);
 
         classData_ = ClassData.extract(getIntent().getExtras());
-        categoryNames_ = new ArrayList<>();
-        for (TemplateCategory tc : classData_.getCategories()) {
-            categoryNames_.add(tc.name_);
-        }
+        PredictorCategoryAdapter adapter = new PredictorCategoryAdapter(this, classData_.getCategories());
+        ListView categoryItems = (ListView) findViewById(R.id.predictor_list);
+        categoryItems.setAdapter(adapter);
 
         setTitle("Predictor");
     }
