@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void finishTemplate() {
         inProgress_.saveData(this);
-//        classes.add(inProgress_);
+        classes.add(inProgress_);
         adapter.notifyDataSetChanged();
     }
 }

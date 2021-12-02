@@ -150,6 +150,17 @@ public class ClassData {
         for (TemplateCategory tc : categories_) {
             numberGrade_ += tc.grade_ * tc.weight_ / 100;
         }
+
+        int group = (int)(numberGrade_ / 10);
+        if (group >= 9) letterGrade_ = "A";
+        else if (group == 8) letterGrade_ = "B";
+        else if (group == 7) letterGrade_ = "C";
+        else if (group == 6) letterGrade_ = "D";
+        else letterGrade_ = "F";
+
+        int signIndicator = (int)(numberGrade_) % 10;
+        if (signIndicator >= 7) letterGrade_ = letterGrade_ + "+";
+        else if (signIndicator <=2 ) letterGrade_ = letterGrade_ + "-";
     }
 
     private static void addCategories(ClassData cd) {
