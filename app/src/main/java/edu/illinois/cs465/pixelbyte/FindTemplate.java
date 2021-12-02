@@ -24,7 +24,7 @@ public class FindTemplate extends BottomSheetDialogFragment {
         View view = inflater.inflate(R.layout.activity_find_template, container, false);
 
         // Create items from sample data
-        List<ClassData> items = ClassData.createSampleList();
+        List<ClassData> items = ClassData.createSampleList((MainActivity)(getActivity()));
 
         // Create adapter to interpret data
         recommendedTemplates_ = view.findViewById(R.id.recommended_templates);

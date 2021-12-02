@@ -46,7 +46,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="300dp"
             android:orientation="vertical"
             >
 
@@ -78,6 +78,7 @@
 
         <Button
             android:id="@+id/edit_template_button"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -87,6 +88,7 @@
 
         <Button
             android:id="@+id/use_template_button"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"

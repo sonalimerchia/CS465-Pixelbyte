@@ -49,6 +49,7 @@ public class AddAssignment extends BottomSheetDialogFragment {
 
         ClassActivity activity = (ClassActivity) getActivity();
         activity.addAssignment(new Assignment(name, earned, possible), category);
+        activity.updateSummary();
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

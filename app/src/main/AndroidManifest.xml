@@ -13,9 +13,6 @@
             android:name=".ViewCategory"
             android:exported="false" />
         <activity
-            android:name=".AddAssignment"
-            android:exported="false" />
-        <activity
             android:name=".AssignmentViewActivity"
             android:exported="false" />
         <activity

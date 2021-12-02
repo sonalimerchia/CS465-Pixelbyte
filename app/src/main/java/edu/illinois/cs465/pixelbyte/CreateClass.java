@@ -1,10 +1,13 @@
 package edu.illinois.cs465.pixelbyte;
 
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -13,15 +16,13 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class CreateClass extends BottomSheetDialogFragment implements View.OnClickListener {
     //BottomSheetDialogFragment openDialog;
-    int color_;
+    TextView currentColor_;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Set bottom sheet contents
         super.onCreate(savedInstanceState);
         View view = inflater.inflate(R.layout.activity_create_class, container, false);
-
-        color_ = 0xffff0000;
 
         //Color Buttons
         view.findViewById(R.id.red_button).setOnClickListener(this);
@@ -54,10 +55,15 @@ public class CreateClass extends BottomSheetDialogFragment implements View.OnCli
     }
 
     public void onClick(View v) {
-        if (v.getId() == R.id.red_button) color_ = 0xFFEE5E5E;
-        else if (v.getId() == R.id.yellow_button) color_ = 0xFFFFD125;
-        else if (v.getId() == R.id.green_button) color_ = 0xFFBFD46D;
-        else if (v.getId() == R.id.blue_button) color_ = 0xFF6FAFC7;
+        currentColor_ = (TextView) v;
+    }
+
+    private int getColorId(TextView b) {
+        if (b.getId() == R.id.red_button) return R.color.uiuc_salmon;
+        else if (b.getId() == R.id.yellow_button) return R.color.uiuc_dark_yellow;
+        else if (b.getId() == R.id.green_button) return R.color.uiuc_citron;
+        else if (b.getId() == R.id.blue_button) return R.color.uiuc_gray_blue;
+        return R.color.uiuc_salmon;
     }
 
     public void onClose() {
@@ -66,7 +72,9 @@ public class CreateClass extends BottomSheetDialogFragment implements View.OnCli
         String name = ((TextView) this.getView().findViewById(R.id.class_name_input)).getText().toString();
         Spinner selector = (Spinner)(this.getView().findViewById(R.id.department_selector));
         String department = selector.toString();
-        m.startNewClass(name, color_, department);
+
+        int colorId = getColorId(currentColor_);
+        m.startNewClass(name, getResources().getColor(colorId), department);
         m.openDialog(BottomSheetCodes.FindTemplate, "Find Template");
     }
 

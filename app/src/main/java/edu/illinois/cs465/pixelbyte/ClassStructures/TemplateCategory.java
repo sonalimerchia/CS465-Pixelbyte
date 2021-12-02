@@ -11,21 +11,34 @@ public class TemplateCategory {
     public double weight_;
     public int drops_;
     public int assignments_;
-    public List<Assignment> enteredAssignments_;
+    public double grade_;
+    public double remainingPoints_;
+    public double projectedPercentage_;
+    private List<Assignment> enteredAssignments_;
 
     public TemplateCategory(String n, double w, int d, int a) {
         name_ = n;
         weight_ = w;
         drops_ = d;
         assignments_ = a;
+        grade_ = 0.0;
         enteredAssignments_ = new ArrayList<>();
     }
 
+    public void addAssignment(Assignment newAssignment) {
+        enteredAssignments_.add(newAssignment);
+        calculateGrade();
+    }
+
+    public List<Assignment> getAssignments() {
+        return enteredAssignments_;
+    }
+
     public static List<TemplateCategory> createItems() {
-        String[] names = {"Quizzes", "Homework", "Assignments"};
-        double[] weights = {20.0, 15.0, 5.5};
-        int[] drops = {2, 3, 0};
-        int[] assignments = {15, 20, 30};
+        String[] names = {"Quizzes", "Homework", "Assignments", "Exams"};
+        double[] weights = {37.25, 37.25, 5.5, 20.0};
+        int[] drops = {2, 3, 0, 0};
+        int[] assignments = {15, 20, 30, 3};
 
         List<TemplateCategory> c = new ArrayList<>();
         for (int index = 0; index < names.length; ++index) {
@@ -37,6 +50,8 @@ public class TemplateCategory {
                 earned = (int)(earned * 100)/100.0;
                 c.get(index).enteredAssignments_.add(new Assignment(names[index] + " " + (assignmentCount + 1), earned, max));
             }
+
+            c.get(index).calculateGrade();
         }
 
         return c;
@@ -56,6 +71,8 @@ public class TemplateCategory {
             tc.enteredAssignments_.add(Assignment.extract(extras, idx, assignIdx));
         }
 
+        tc.calculateGrade();
+
         return tc;
     }
 
@@ -71,7 +88,7 @@ public class TemplateCategory {
         }
     }
 
-    public String getGrade() {
+    private void calculateGrade() {
         double totalEarned = 0;
         double totalPossible = 0;
 
@@ -80,8 +97,10 @@ public class TemplateCategory {
             totalPossible += assignment.maxPoints_;
         }
 
-        double result = Math.round(totalEarned / totalPossible * 10000)/100.0;
+        grade_ = Math.round(totalEarned / totalPossible * 10000)/100.0;
+    }
 
-        return result + "%";
+    public String getGrade() {
+        return grade_ + "%";
     }
 }

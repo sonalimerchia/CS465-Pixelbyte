@@ -18,6 +18,7 @@ import edu.illinois.cs465.pixelbyte.ClassStructures.TemplateCategory;
 
 public class PreviewTemplate extends BottomSheetDialogFragment {
     String className_;
+    List<TemplateCategory> items_;
 
     public PreviewTemplate(String name) {
         className_ = name;
@@ -29,10 +30,10 @@ public class PreviewTemplate extends BottomSheetDialogFragment {
         title.setText(className_);
 
         ListView template = (ListView) view.findViewById(R.id.template);
-        List<TemplateCategory> items = TemplateCategory.createItems();
+         items_ = TemplateCategory.createItems();
 
         // Create adapter to interpret data
-        CategoryArrayAdapter arr = new CategoryArrayAdapter(view.getContext(), items, R.layout.template_list_item);
+        CategoryArrayAdapter arr = new CategoryArrayAdapter(view.getContext(), items_, R.layout.template_list_item);
 
         // Apply adapter to list
         template.setAdapter(arr);
@@ -59,6 +60,9 @@ public class PreviewTemplate extends BottomSheetDialogFragment {
         edit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 MainActivity m = (MainActivity)(getActivity());
+                for (TemplateCategory tc : items_) {
+                    m.inProgress_.addCategory(tc);
+                }
                 m.openDialog(BottomSheetCodes.NewTemplatePreview, "NewTemplate");
             }
         });
@@ -68,7 +72,11 @@ public class PreviewTemplate extends BottomSheetDialogFragment {
         use.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 MainActivity m = (MainActivity)(getActivity());
-                // TODO: Implement use template
+                for (TemplateCategory tc : items_) {
+                    m.inProgress_.addCategory(tc);
+                }
+                m.finishTemplate();
+                m.openDialog.onDestroyView();
             }
         });
 

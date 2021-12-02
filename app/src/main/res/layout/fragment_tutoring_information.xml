@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TutoringInformationFragment"
+    android:gravity="top"
+    android:padding="15dp"
+    >
+
+    <ImageView
+        android:id="@+id/close_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="left"
+        android:src="@drawable/ic_cancel_svgrepo_com" />
+    
+    <TextView
+        android:id="@+id/department_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@id/close_dialog"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        style="@style/TextAppearance.AppCompat.Display1"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/department_label"
+        >
+    
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/department_website"
+            android:layout_alignBottom="@id/department_website"
+            android:layout_alignParentStart="true"
+            android:text="Website: "
+        />
+
+        <TextView
+            android:id="@+id/department_website"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginVertical="10dp"
+            android:gravity="right" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/department_email"
+            android:layout_alignBottom="@id/department_email"
+            android:layout_alignParentStart="true"
+
+            android:text="Email: "
+            />
+
+        <TextView
+            android:id="@+id/department_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/department_website"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="10dp"
+            android:gravity="right" />
+
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -31,7 +31,7 @@ public class CreateNewTemplate extends BottomSheetDialogFragment {
 
         // Create adapter to interpret data
         ListView template = view.findViewById(R.id.template_in_progress);
-        CategoryArrayAdapter arr = new CategoryArrayAdapter(view.getContext(), classData_.categories_, R.layout.creating_template_item);
+        CategoryArrayAdapter arr = new CategoryArrayAdapter(view.getContext(), classData_.getCategories(), R.layout.creating_template_item);
 
         // Apply adapter to list
         template.setAdapter(arr);
@@ -54,7 +54,7 @@ public class CreateNewTemplate extends BottomSheetDialogFragment {
             }
         });
 
-        // Set up finish button TODO: send data when you click this
+        // Set up finish button
         TextView finish = (TextView) view.findViewById(R.id.finish_text);
         finish.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

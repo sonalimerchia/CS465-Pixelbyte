@@ -1,5 +1,6 @@
 package edu.illinois.cs465.pixelbyte.ClassList;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +13,15 @@ import androidx.cardview.widget.CardView;
 import java.util.List;
 
 import edu.illinois.cs465.pixelbyte.ClassStructures.ClassData;
+import edu.illinois.cs465.pixelbyte.MainActivity;
 import edu.illinois.cs465.pixelbyte.R;
 
 public class ClassListAdapter extends ArrayAdapter<ClassData> {
-    public ClassListAdapter(Context context, List<ClassData> objects) {
+    MainActivity parent_;
+
+    public ClassListAdapter(MainActivity context, List<ClassData> objects) {
         super(context, 0, objects);
+        parent_ = context;
     }
 
     // Return an integer representing the type by fetching the enum type ordinal
@@ -70,6 +75,13 @@ public class ClassListAdapter extends ArrayAdapter<ClassData> {
         if (getHelpButton != null && (classItem.goal_ != 0 && classItem.numberGrade_ >= classItem.goal_)) {
             getHelpButton.setHeight(0);
             getHelpButton.setWidth(0);
+        } else {
+            getHelpButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    parent_.openTutoringDialog(classItem.department_);
+                }
+            });
         }
 
         return convertView;

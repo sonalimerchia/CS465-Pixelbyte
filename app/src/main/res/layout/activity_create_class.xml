@@ -98,6 +98,7 @@
                         android:background="@drawable/circle_background"
                         android:backgroundTint="@color/uiuc_salmon"
                         android:text="R"
+                        android:foreground="?android:attr/selectableItemBackground"
                         />
                 </LinearLayout>
 
@@ -115,6 +116,7 @@
                         android:background="@drawable/circle_background"
                         android:backgroundTint="@color/uiuc_dark_yellow"
                         android:text="Y"
+                        android:foreground="?android:attr/selectableItemBackground"
                         />
                 </LinearLayout>
 
@@ -132,6 +134,7 @@
                         android:background="@drawable/circle_background"
                         android:backgroundTint="@color/uiuc_citron"
                         android:text="G"
+                        android:foreground="?android:attr/selectableItemBackground"
                         />
                 </LinearLayout>
 
@@ -149,6 +152,7 @@
                         android:background="@drawable/circle_background"
                         android:backgroundTint="@color/uiuc_gray_blue"
                         android:text="B"
+                        android:foreground="?android:attr/selectableItemBackground"
                         />
                 </LinearLayout>
             </LinearLayout>

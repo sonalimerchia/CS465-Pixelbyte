@@ -25,7 +25,7 @@ public class ViewCategory extends AppCompatActivity {
         percentTag.setText(category_.getGrade());
 
         ListView assignmentList = (ListView) findViewById(R.id.assignment_list);
-        AssignmentListAdapter adapter = new AssignmentListAdapter(this, category_.enteredAssignments_);
+        AssignmentListAdapter adapter = new AssignmentListAdapter(this, category_.getAssignments());
         assignmentList.setAdapter(adapter);
     }
 }

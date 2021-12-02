@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
@@ -16,111 +17,31 @@ import com.synnapps.carouselview.ImageClickListener;
 import com.synnapps.carouselview.ImageListener;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import edu.illinois.cs465.pixelbyte.ClassStructures.ClassData;
+import edu.illinois.cs465.pixelbyte.ClassStructures.TemplateCategory;
+import edu.illinois.cs465.pixelbyte.PredictorList.PredictorCategoryAdapter;
 
 public class Predictor extends AppCompatActivity {
 
-    Toolbar toolbar;
-
-    TextView result;
-    EditText input;
-    TextView category;
-    Button calculate;
-    CarouselView carouselView;
-    int[] categoryImages = {R.drawable.image2, R.drawable.image1, R.drawable.image3, R.drawable.image4};
-
-    ArrayList<String> posToCategory;
-    double goal;
-    double percentage;
+    ClassData classData_;
+    List<String> categoryNames_;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.predictor);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
-//        setSupportActionBar(toolbar);S
-        posToCategory = getIntent().getExtras().getStringArrayList("Categories");
-        goal =  getIntent().getExtras().getDouble("Goal");
-        percentage = getIntent().getExtras().getDouble("Percentage");
 
-        toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+        classData_ = ClassData.extract(getIntent().getExtras());
+        PredictorCategoryAdapter adapter = new PredictorCategoryAdapter(this, classData_.getCategories());
+        ListView categoryItems = (ListView) findViewById(R.id.predictor_list);
+        categoryItems.setAdapter(adapter);
 
-        result = findViewById(R.id.result);
-        input = findViewById(R.id.input);
-        category = findViewById(R.id.category);
-        calculate = findViewById(R.id.calculate);
-        input.setText(String.valueOf(goal));
-
-        carouselView = findViewById(R.id.carouselView);
-        carouselView.setPageCount(posToCategory.size());
-        carouselView.setImageListener(imageListener);
-        carouselView.setImageClickListener(imageClickListener);
-
-        calculate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String res = String.format("%.1f", getCurrAvgGrade()) + "%";
-                result.setText(res);
-            }
-        });
-
-        carouselView.performClick();
+        setTitle("Predictor");
     }
 
-    ImageListener imageListener = new ImageListener() {
-        @Override
-        public void setImageForPosition(int position, ImageView imageView) {
-            imageView.setImageResource(categoryImages[position%4]);
-            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        }
-    };
 
-    ImageClickListener imageClickListener = new ImageClickListener() {
-        @Override
-        public void onClick(int position) {
-            String txt = "Category: " + posToCategory.get(position);
-            category.setText(txt);
-            String res = String.format("%.1f", getCurrAvgGrade(position)) + "%";
-            result.setText(res);
-        }
-    };
-
-    private double getCurrAvgGrade() {
-        double tempSum = 0;
-        for (int i = 0; i < posToCategory.size(); i++) {
-            if (0 != i) {
-                // TODO: switch with avg
-                tempSum += percentage;
-            }
-        }
-        try {
-            double goal = Double.parseDouble(input.getText().toString());
-            double predicted = goal * posToCategory.size() - tempSum;
-            return predicted;
-        } catch (NumberFormatException e) {
-            // TODO: switch with avg
-            return percentage;
-        }
-    }
-
-    private double getCurrAvgGrade(int position) {
-        double[] avg = {90, 80, 70, 60};
-        double tempSum = 0;
-        for (int i = 0; i < posToCategory.size(); i++) {
-            if (position != i) {
-                // TODO: switch with avg
-                tempSum += percentage;
-            }
-        }
-        try {
-            double goal = Double.parseDouble(input.getText().toString());
-            double predicted = goal * posToCategory.size() - tempSum;
-            return predicted;
-        } catch (NumberFormatException e) {
-            // TODO: switch with avg
-            return percentage;
-        }
-    }
 
     private double getGradeEstimate(int position) {
         return 0;
