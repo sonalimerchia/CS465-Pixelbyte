@@ -12,6 +12,8 @@ public class TemplateCategory {
     public int drops_;
     public int assignments_;
     public double grade_;
+    public double remainingPoints_;
+    public double projectedPercentage_;
     private List<Assignment> enteredAssignments_;
 
     public TemplateCategory(String n, double w, int d, int a) {

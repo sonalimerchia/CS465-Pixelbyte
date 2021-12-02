@@ -5,7 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import com.google.android.material.slider.Slider;
 
 import java.util.List;
 
@@ -13,9 +16,11 @@ import edu.illinois.cs465.pixelbyte.ClassStructures.TemplateCategory;
 import edu.illinois.cs465.pixelbyte.R;
 
 public class PredictorCategoryAdapter extends ArrayAdapter<TemplateCategory> {
+    List<TemplateCategory> data_;
 
     public PredictorCategoryAdapter(Context context, List<TemplateCategory> objects) {
         super(context, 0, objects);
+        data_ = objects;
     }
 
     // Return an integer representing the type by fetching the enum type ordinal
@@ -54,6 +59,13 @@ public class PredictorCategoryAdapter extends ArrayAdapter<TemplateCategory> {
         if (predictGrade != null) {
             predictGrade.setText(category.getGrade());
         }
+
+        EditText numAssignments = convertView.findViewById(R.id.remaining_points);
+        Slider slider = convertView.findViewById(R.id.predictedScore);
+        PredictorElementListener listener = new PredictorElementListener(category, predictGrade, numAssignments, slider, position, data_);
+
+        numAssignments.addTextChangedListener(listener);
+        slider.addOnChangeListener(listener);
 
         // Return the completed view to render on screen
         return convertView;
