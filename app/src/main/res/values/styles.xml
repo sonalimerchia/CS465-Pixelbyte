@@ -6,4 +6,10 @@
         <item name="android:gravity">center</item>
         <item name="background">@drawable/circle_background</item>
     </style>
+    <style name="BotDialogTitle" parent="">
+        <item name="android:textSize">30sp</item>
+    </style>
+    <style name="BotDialogHeader" parent="">
+        <item name="android:textSize">20sp</item>
+    </style>
 </resources>

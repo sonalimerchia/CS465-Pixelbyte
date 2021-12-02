@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         inProgress_ = new ClassData(name, color, department);
     }
 
+
     public void finishTemplate() {
         classes.add(inProgress_);
         adapter.notifyDataSetChanged();

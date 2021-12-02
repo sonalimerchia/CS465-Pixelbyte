@@ -3,36 +3,43 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/drawable/border.xml" value="0.20104166666666667" />
-        <entry key="app/src/main/res/drawable/circle_background.xml" value="0.2078125" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/drawable/border.xml" value="0.1" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/drawable/circle_background.xml" value="0.15885416666666666" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/drawable/custom_border.xml" value="0.1265625" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/drawable/ic_back_svgrepo_com.xml" value="0.2703125" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/drawable/ic_next_svgrepo_com.xml" value="0.2703125" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/drawable/ic_plus_svgrepo_com.xml" value="0.16822916666666668" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_add_assignment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_add_category.xml" value="0.264" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_assignment_view.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_class.xml" value="0.264" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_create_class.xml" value="0.264" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_create_new_class.xml" value="0.176" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_create_new_template.xml" value="0.264" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_find_template.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_main.xml" value="0.152" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_profile.xml" value="0.1515625" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_select_template_options.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_select_templates.xml" value="0.264" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/activity_view_category.xml" value="0.264" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/class_category_list_item.xml" value="0.15208333333333332" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/class_list_element.xml" value="0.2" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/creating_template_item.xml" value="0.264" />
+        <entry key="..\:/Users/hamlo/AndroidStudioProjects/CS465-Pixelbyte/app/src/main/res/layout/list_elem.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/drawable/ic_add_svgrepo_com.xml" value="0.20462962962962963" />
         <entry key="app/src/main/res/drawable/ic_back_svgrepo_com.xml" value="0.20461538461538462" />
         <entry key="app/src/main/res/drawable/ic_cancel_svgrepo_com.xml" value="0.20461538461538462" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.20461538461538462" />
-        <entry key="app/src/main/res/drawable/ic_next_svgrepo_com.xml" value="0.20461538461538462" />
-        <entry key="app/src/main/res/drawable/ic_plus_svgrepo_com.xml" value="0.2078125" />
-        <entry key="app/src/main/res/drawable/rectangular_shadow.xml" value="0.11481481481481481" />
-        <entry key="app/src/main/res/drawable/rounded_corners.xml" value="0.20461538461538462" />
-        <entry key="app/src/main/res/layout/activity_add_assignment.xml" value="0.19166666666666668" />
-        <entry key="app/src/main/res/layout/activity_add_category.xml" value="0.43089430894308944" />
-        <entry key="app/src/main/res/layout/activity_assignment_view.xml" value="0.18125" />
-        <entry key="app/src/main/res/layout/activity_class.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/activity_create_class.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_create_new_template.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_add_category.xml" value="0.10280797101449275" />
+        <entry key="app/src/main/res/layout/activity_create_new_template.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_create_template_list.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_find_template.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/activity_preview_template.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.16818642350557245" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_template_in_progress.xml" value="0.10280797101449275" />
-        <entry key="app/src/main/res/layout/activity_view_category.xml" value="0.18125" />
         <entry key="app/src/main/res/layout/add_category_layout_dialog.xml" value="0.16818642350557245" />
         <entry key="app/src/main/res/layout/bottom_sheet_dialog_layout.xml" value="0.16818642350557245" />
         <entry key="app/src/main/res/layout/category_list_item.xml" value="0.10280797101449275" />
-        <entry key="app/src/main/res/layout/class_category_list_item.xml" value="0.19166666666666668" />
-        <entry key="app/src/main/res/layout/class_list_element.xml" value="0.335" />
         <entry key="app/src/main/res/layout/creating_template_item.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.12001811594202899" />
         <entry key="app/src/main/res/layout/fragment_category_item.xml" value="0.16818642350557245" />
         <entry key="app/src/main/res/layout/fragment_category_item_list.xml" value="0.16818642350557245" />
         <entry key="app/src/main/res/layout/fragment_item_list.xml" value="0.10280797101449275" />
@@ -42,10 +49,7 @@
         <entry key="app/src/main/res/layout/fragment_new_template_categories_list_dialog_item.xml" value="0.16818642350557245" />
         <entry key="app/src/main/res/layout/list_elem.xml" value="0.11096014492753623" />
         <entry key="app/src/main/res/layout/new_template_layout_dialog.xml" value="0.1638888888888889" />
-        <entry key="app/src/main/res/layout/popup.xml" value="0.1" />
         <entry key="app/src/main/res/layout/predictor.xml" value="0.10552536231884058" />
-        <entry key="app/src/main/res/layout/recommended_template_item.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/template_list_item.xml" value="0.2749094202898551" />
       </map>
     </option>
   </component>

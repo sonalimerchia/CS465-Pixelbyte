@@ -1,11 +1,15 @@
 package edu.illinois.cs465.pixelbyte;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.graphics.drawable.ColorDrawable;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -37,6 +41,20 @@ public class ClassActivity extends AppCompatActivity {
         classData_ = ClassData.extract(extras);
 
         this.setTitle(classData_.className_);
+
+        // Changes color of status bar [uses or overrides deprecated API here?]
+        Window window = this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(classData_.color_);
+
+        //Changes color of app/action bar
+        ActionBar actionBar;
+        actionBar = this.getSupportActionBar();
+        ColorDrawable colorDrawable = new ColorDrawable(classData_.color_);
+        if (actionBar != null) {
+            actionBar.setBackgroundDrawable(colorDrawable);
+        }
 
         TextView grade = (TextView) findViewById(R.id.numgrade);
         grade.setText(classData_.makeGradeString());
@@ -70,6 +88,22 @@ public class ClassActivity extends AppCompatActivity {
                 startActivity(predictIntent);
             }
         });
+
+        //Change color of View Weight and Predict Grades Buttons
+        Button weightButton = (Button) findViewById(R.id.weightsButton);
+        if (classData_.color_ == 0xFFEE5E5E) {
+            weightButton.setBackgroundColor(getResources().getColor(R.color.salmon_gradient));
+            predictButton.setBackgroundColor(getResources().getColor(R.color.salmon_gradient));
+        } else if (classData_.color_ == 0xFFFFD125) {
+            weightButton.setBackgroundColor(getResources().getColor(R.color.dark_yellow_gradient));
+            predictButton.setBackgroundColor(getResources().getColor(R.color.dark_yellow_gradient));
+        } else if (classData_.color_ == 0xFFBFD46D) {
+            weightButton.setBackgroundColor(getResources().getColor(R.color.citron_gradient));
+            predictButton.setBackgroundColor(getResources().getColor(R.color.citron_gradient));
+        } else {
+            weightButton.setBackgroundColor(getResources().getColor(R.color.periwinkle_gradient));
+            predictButton.setBackgroundColor(getResources().getColor(R.color.periwinkle_gradient));
+        }
     }
 
     public void addAssignment(Assignment a, String category) {
