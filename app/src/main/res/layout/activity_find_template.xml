@@ -101,7 +101,7 @@
         <ProgressBar
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:progressBackgroundTint="@color/gray"
-            android:progressTint="@color/purple_500"
+            android:progressTint="@color/uiuc_primary_blue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start"

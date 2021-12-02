@@ -99,22 +99,12 @@ public class ClassData {
         }
     }
 
-    public void addToIntentPredictor(Intent intent) {
-        ArrayList<String> catList = new ArrayList<>();
-        for (TemplateCategory tc : categories_) {
-            catList.add(tc.name_);
-        }
-        intent.putExtra("Categories", catList);
-        intent.putExtra("Goal", goal_);
-        intent.putExtra("Percentage", numberGrade_);
-    }
-
     public static List<ClassData> createSampleList() {
         List<ClassData> classes = new ArrayList<>();
 
-        classes.add(new ClassData("CS 125", "A", 95.5, 0xFFBFD46D, 90.0));
-        classes.add(new ClassData("CS 465", "C+", 78.9, 0xFFEE5E5E, 90.0));
-        classes.add(new ClassData("CS 233", "B-", 83.9, 0xFF4F6898, 80.0));
+        classes.add(new ClassData("CS 125", "A", 95.5, 0xFF6FAFC7, 90.0));
+        classes.add(new ClassData("CS 465", "C+", 78.9, 0xFFFFD125, 90.0));
+        classes.add(new ClassData("CS 233", "B-", 83.9, 0xFFBFD46D, 80.0));
 
         addCategories(classes.get(0));
         addCategories(classes.get(1));

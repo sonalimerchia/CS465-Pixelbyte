@@ -77,11 +77,9 @@ public class ClassActivity extends AppCompatActivity {
         categories.setAdapter(adapter);
 
         // Create predictor
-        Button predictButton;
-        // Predictor
-        predictButton = (Button) findViewById(R.id.predictor);
+        Button predictButton = (Button) findViewById(R.id.predict_button);
         Intent predictIntent = new Intent(this, Predictor.class);
-        classData_.addToIntentPredictor(predictIntent);
+        classData_.addToIntent(predictIntent);
         predictButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
