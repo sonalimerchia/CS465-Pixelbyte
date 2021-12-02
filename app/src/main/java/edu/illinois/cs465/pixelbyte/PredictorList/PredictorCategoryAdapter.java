@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.google.android.material.slider.Slider;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.illinois.cs465.pixelbyte.ClassStructures.PredictorCategory;
@@ -18,11 +19,10 @@ import edu.illinois.cs465.pixelbyte.R;
 
 public class PredictorCategoryAdapter extends ArrayAdapter<PredictorCategory> {
     List<PredictorCategory> data_;
-    boolean listenerInitialized_;
 
     public PredictorCategoryAdapter(Context context, List<PredictorCategory> objects) {
         super(context, 0, objects);
-        listenerInitialized_ = false;
+
         data_ = objects;
     }
 
@@ -66,13 +66,8 @@ public class PredictorCategoryAdapter extends ArrayAdapter<PredictorCategory> {
         EditText numAssignments = convertView.findViewById(R.id.remaining_points);
         Slider slider = convertView.findViewById(R.id.predictedScore);
 
-        if (!listenerInitialized_) {
-            PredictorElementListener listener = new PredictorElementListener(category, this, position);
-            numAssignments.addTextChangedListener(listener);
-            slider.addOnChangeListener(listener);
-
-            listenerInitialized_ = true;
-        }
+        numAssignments.addTextChangedListener(new PredictorElementListener(category, this, position));
+        slider.addOnChangeListener(new PredictorElementListener(category, this, position));
 
         // Return the completed view to render on screen
         return convertView;
@@ -86,4 +81,5 @@ public class PredictorCategoryAdapter extends ArrayAdapter<PredictorCategory> {
     public void updateItem(int position, PredictorCategory newVersion) {
         data_.set(position, newVersion);
     }
+
 }

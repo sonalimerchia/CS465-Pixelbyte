@@ -10,11 +10,8 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-import java.util.List;
-
 import edu.illinois.cs465.pixelbyte.ClassStructures.ClassData;
 import edu.illinois.cs465.pixelbyte.categoryCreation.CategoryArrayAdapter;
-import edu.illinois.cs465.pixelbyte.ClassStructures.TemplateCategory;
 
 public class CreateNewTemplate extends BottomSheetDialogFragment {
     ClassData classData_;
@@ -60,7 +57,7 @@ public class CreateNewTemplate extends BottomSheetDialogFragment {
             public void onClick(View view) {
                 MainActivity m = (MainActivity) (getActivity());
                 m.finishTemplate();
-                m.openDialog.onDestroyView();
+                m.openDialog_.onDestroyView();
             }
         });
 

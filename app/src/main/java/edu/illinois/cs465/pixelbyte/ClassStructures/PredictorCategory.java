@@ -7,12 +7,15 @@ public class PredictorCategory {
 
     double projectedPercentage_;
     double remainingPoints_;
+    double weight_;
 
     double currentGrade_;
     double projection_;
 
     public PredictorCategory(TemplateCategory tc) {
         name_ = tc.name_;
+        weight_ = tc.weight_;
+
         earnedPoints_ = 0;
         maxEarnedPoints_ = 0;
 
@@ -52,9 +55,15 @@ public class PredictorCategory {
         return rounded + "%";
     }
 
+    public double getContribution() {
+        return projection_ * weight_ / 100;
+    }
+
     private void calculateProjection() {
         double futurePoints = (projectedPercentage_ / 100) * remainingPoints_;
         projection_ = (futurePoints + earnedPoints_) / (maxEarnedPoints_ + remainingPoints_);
         projection_ *= 100;
+
+        System.out.println(name_ + "\t" + projection_);
     }
 }

@@ -22,10 +22,6 @@ public class TutoringInformationFragment extends DialogFragment {
 
     String department_;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     public TutoringInformationFragment() {
         // Required empty public constructor
     }
@@ -44,7 +40,7 @@ public class TutoringInformationFragment extends DialogFragment {
     public static TutoringInformationFragment newInstance(String param1) {
         TutoringInformationFragment fragment = new TutoringInformationFragment();
         Bundle args = new Bundle();
-        args.putString(fragment.department_, param1);
+        args.putString("department", fragment.department_);
         fragment.setArguments(args);
         return fragment;
     }
@@ -53,7 +49,7 @@ public class TutoringInformationFragment extends DialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(department_);
+            department_ = getArguments().getString("department");
         }
     }
 

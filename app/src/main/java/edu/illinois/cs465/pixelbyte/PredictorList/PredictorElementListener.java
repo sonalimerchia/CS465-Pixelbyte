@@ -43,6 +43,7 @@ public class PredictorElementListener implements Slider.OnChangeListener, TextWa
 
         if (result != -1) {
             category_.setRemainingPoints(result);
+            adapter_.updateItem(position_, category_);
         }
     }
 
