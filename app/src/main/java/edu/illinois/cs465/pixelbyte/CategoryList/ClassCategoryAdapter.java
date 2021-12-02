@@ -50,7 +50,7 @@ public class ClassCategoryAdapter extends ArrayAdapter<TemplateCategory> {
 
         TextView percentTag = (TextView) convertView.findViewById(R.id.category_grade);
         if (percentTag != null) {
-            if (category.enteredAssignments_.size() == 0) {
+            if (category.getAssignments().size() == 0) {
                 percentTag.setText("No Data");
             } else {
                 percentTag.setText(category.getGrade());

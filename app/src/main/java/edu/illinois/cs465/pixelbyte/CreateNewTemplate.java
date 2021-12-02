@@ -31,7 +31,7 @@ public class CreateNewTemplate extends BottomSheetDialogFragment {
 
         // Create adapter to interpret data
         ListView template = view.findViewById(R.id.template_in_progress);
-        CategoryArrayAdapter arr = new CategoryArrayAdapter(view.getContext(), classData_.categories_, R.layout.creating_template_item);
+        CategoryArrayAdapter arr = new CategoryArrayAdapter(view.getContext(), classData_.getCategories(), R.layout.creating_template_item);
 
         // Apply adapter to list
         template.setAdapter(arr);

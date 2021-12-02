@@ -37,7 +37,7 @@ public class AddCategory extends BottomSheetDialogFragment {
     public void onClose() {
         if (nameInput == null) return;
         MainActivity m = (MainActivity) getActivity();
-        m.inProgress_.categories_.add(new TemplateCategory(nameInput.getText().toString(), weightSlider.getValue(), parseInt(dropsInput), parseInt(assignmentsInput)));
+        m.inProgress_.addCategory(new TemplateCategory(nameInput.getText().toString(), weightSlider.getValue(), parseInt(dropsInput), parseInt(assignmentsInput)));
         m.openDialog(BottomSheetCodes.NewTemplatePreview, "New Template");
     }
 
@@ -103,7 +103,7 @@ public class AddCategory extends BottomSheetDialogFragment {
             }
         });
 
-        // Set up done button TODO: send data when you click this
+        // Set up done button
         TextView done = (TextView) view.findViewById(R.id.done_text);
         done.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

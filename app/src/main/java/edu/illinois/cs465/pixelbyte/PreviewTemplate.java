@@ -60,7 +60,9 @@ public class PreviewTemplate extends BottomSheetDialogFragment {
         edit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 MainActivity m = (MainActivity)(getActivity());
-                m.inProgress_.categories_ = items_;
+                for (TemplateCategory tc : items_) {
+                    m.inProgress_.addCategory(tc);
+                }
                 m.openDialog(BottomSheetCodes.NewTemplatePreview, "NewTemplate");
             }
         });
@@ -70,7 +72,9 @@ public class PreviewTemplate extends BottomSheetDialogFragment {
         use.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 MainActivity m = (MainActivity)(getActivity());
-                m.inProgress_.categories_ = items_;
+                for (TemplateCategory tc : items_) {
+                    m.inProgress_.addCategory(tc);
+                }
                 m.finishTemplate();
                 m.openDialog.onDestroyView();
             }

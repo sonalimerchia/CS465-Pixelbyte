@@ -33,7 +33,7 @@ public class Predictor extends AppCompatActivity {
 
         classData_ = ClassData.extract(getIntent().getExtras());
         categoryNames_ = new ArrayList<>();
-        for (TemplateCategory tc : classData_.categories_) {
+        for (TemplateCategory tc : classData_.getCategories()) {
             categoryNames_.add(tc.name_);
         }
 

@@ -28,7 +28,7 @@ public class ClassActivity extends AppCompatActivity {
     ClassData classData_;
 
     private void openDialog(String bottomSheetName) {
-        openDialog = new AddAssignment(classData_.categories_);
+        openDialog = new AddAssignment(classData_.getCategories());
         openDialog.show(getSupportFragmentManager(), bottomSheetName);
     }
 
@@ -56,11 +56,7 @@ public class ClassActivity extends AppCompatActivity {
             actionBar.setBackgroundDrawable(colorDrawable);
         }
 
-        TextView grade = (TextView) findViewById(R.id.numgrade);
-        grade.setText(classData_.makeGradeString());
-
-        TextView goal = (TextView) findViewById(R.id.goal);
-        goal.setText(classData_.makeGoalString());
+        updateSummary();
 
         CardView addButton = (CardView) findViewById(R.id.create_assignment);
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +67,7 @@ public class ClassActivity extends AppCompatActivity {
 
         // Create adapter to interpret data
         ListView categories = (ListView) findViewById(R.id.category_list);
-        adapter = new ClassCategoryAdapter(this, classData_.categories_);
+        adapter = new ClassCategoryAdapter(this, classData_.getCategories());
 
         // Apply adapter to list
         categories.setAdapter(adapter);
@@ -105,13 +101,15 @@ public class ClassActivity extends AppCompatActivity {
     }
 
     public void addAssignment(Assignment a, String category) {
-        for (TemplateCategory tc : classData_.categories_) {
-            if (tc.name_.equals(category)) {
-                tc.enteredAssignments_.add(a);
-                break;
-            }
-        }
-
+        classData_.addAssignment(category, a);
         adapter.notifyDataSetChanged();
+    }
+
+    public void updateSummary() {
+        TextView grade = (TextView) findViewById(R.id.numgrade);
+        grade.setText(classData_.makeGradeString());
+
+        TextView goal = (TextView) findViewById(R.id.goal);
+        goal.setText(classData_.makeGoalString());
     }
 }
