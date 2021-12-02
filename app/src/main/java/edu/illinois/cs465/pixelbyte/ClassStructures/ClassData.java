@@ -1,13 +1,19 @@
 package edu.illinois.cs465.pixelbyte.ClassStructures;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.google.gson.Gson;
+
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.lang.Object;
 
+import edu.illinois.cs465.pixelbyte.MainActivity;
 import edu.illinois.cs465.pixelbyte.R;
 
 public class ClassData {
@@ -121,7 +127,7 @@ public class ClassData {
         }
     }
 
-    public static List<ClassData> createSampleList() {
+    public static List<ClassData> createSampleList(MainActivity parent) {
         List<ClassData> classes = new ArrayList<>();
 
         classes.add(new ClassData("CS 125", "A", 0xFF6FAFC7, 90.0));
@@ -131,6 +137,10 @@ public class ClassData {
         addCategories(classes.get(0));
         addCategories(classes.get(1));
         addCategories(classes.get(2));
+
+        for (ClassData cd : classes) {
+            cd.saveData(parent);
+        }
 
         return classes;
     }
@@ -145,5 +155,21 @@ public class ClassData {
     private static void addCategories(ClassData cd) {
         cd.categories_ = TemplateCategory.createItems();
         cd.calculateGrade();
+    }
+
+    public void saveData(Activity activity) {
+        String filename = "class-"+className_+".json";
+        try {
+            FileOutputStream outputStream = activity.openFileOutput(filename, Context.MODE_PRIVATE);
+
+            Gson gson = new Gson();
+            String classDataStr = gson.toJson(this);
+
+            outputStream.write(classDataStr.getBytes());
+            outputStream.flush();
+            outputStream.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
