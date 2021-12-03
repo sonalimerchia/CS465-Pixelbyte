@@ -1,9 +1,11 @@
 package edu.illinois.cs465.pixelbyte;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.DialogFragment;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
@@ -43,6 +45,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         generateClasses();
         if (classes_.size() == 0) {
             classes_ = ClassData.createSampleList(this);
+        }
+        createFileListeners();
+
+        generateClasses();
+        if (classes.size() == 0) {
+            classes = ClassData.createSampleList(this);
         }
         createFileListeners();
 
@@ -165,6 +173,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         classes_.add(inProgress_);
         adapter_.notifyDataSetChanged();
     }
+
+    public void openTutoringDialog(String department) {
+        DialogFragment df = new TutoringInformationFragment(department);
+        df.show(getSupportFragmentManager(), "Tutoring Name");
+    }
+
 
     public void openTutoringDialog(String department) {
         DialogFragment df = new TutoringInformationFragment(department);
