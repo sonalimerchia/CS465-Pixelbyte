@@ -48,12 +48,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         createFileListeners();
 
-        generateClasses();
-        if (classes.size() == 0) {
-            classes = ClassData.createSampleList(this);
-        }
-        createFileListeners();
-
         createClassList();
     }
 
@@ -173,12 +167,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         classes_.add(inProgress_);
         adapter_.notifyDataSetChanged();
     }
-
-    public void openTutoringDialog(String department) {
-        DialogFragment df = new TutoringInformationFragment(department);
-        df.show(getSupportFragmentManager(), "Tutoring Name");
-    }
-
 
     public void openTutoringDialog(String department) {
         DialogFragment df = new TutoringInformationFragment(department);
