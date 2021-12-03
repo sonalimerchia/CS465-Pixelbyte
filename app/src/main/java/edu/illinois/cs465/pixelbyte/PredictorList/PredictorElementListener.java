@@ -12,34 +12,19 @@ import com.google.android.material.slider.Slider;
 import java.util.List;
 
 import edu.illinois.cs465.pixelbyte.ClassStructures.Assignment;
+import edu.illinois.cs465.pixelbyte.ClassStructures.PredictorCategory;
 import edu.illinois.cs465.pixelbyte.ClassStructures.TemplateCategory;
 
 public class PredictorElementListener implements Slider.OnChangeListener, TextWatcher {
-    TextView predictionDisplay_;
-    TemplateCategory category_;
-    List<TemplateCategory> objects_;
+    PredictorCategory category_;
+    PredictorCategoryAdapter adapter_;
 
     int position_;
-    double currentEarned_;
-    double currentTotal_;
 
-    public PredictorElementListener(TemplateCategory tc, TextView pd, EditText pointInput, Slider predict, int pos, List<TemplateCategory> listRef) {
-        predictionDisplay_ = pd;
-        category_ = tc;
-        category_.remainingPoints_ = parseDouble(pointInput.getText().toString());
-        category_.projectedPercentage_ = predict.getValue();
-        objects_ = listRef;
-        position_ = pos;
-
-        currentTotal_ = 0;
-        currentEarned_ = 0;
-
-        for (Assignment a : tc.getAssignments()) {
-            currentEarned_ += a.earnedPoints_;
-            currentTotal_ += a.maxPoints_;
-        }
-
-        updateScore();
+    public PredictorElementListener(PredictorCategory category, PredictorCategoryAdapter parent, int position) {
+        category_ = category;
+        adapter_ = parent;
+        position_ = position;
     }
 
     @Override
@@ -54,10 +39,12 @@ public class PredictorElementListener implements Slider.OnChangeListener, TextWa
 
     @Override
     public void afterTextChanged(Editable editable) {
-        String result = editable.toString();
+        double result = parseDouble(editable.toString()) ;
 
-        category_.remainingPoints_ = parseDouble(result);
-        updateScore();
+        if (result != -1) {
+            category_.setRemainingPoints(result);
+            adapter_.updateItem(position_, category_);
+        }
     }
 
     private double parseDouble(String string) {
@@ -68,25 +55,13 @@ public class PredictorElementListener implements Slider.OnChangeListener, TextWa
         try {
             return Double.parseDouble(string);
         } catch (Exception e) {
-            return 0;
+            return -1;
         }
     }
 
     @Override
     public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
-        category_.projectedPercentage_ = value;
-
-        if (category_.remainingPoints_ != 0) {
-            updateScore();
-        }
-    }
-
-    private void updateScore() {
-        double toAdd = category_.remainingPoints_ * category_.projectedPercentage_ / 100;
-        toAdd = (toAdd + currentEarned_) / (category_.remainingPoints_ + currentTotal_);
-        String result = (int)(toAdd * 10000)/100.0 + "%";
-        predictionDisplay_.setText(result);
-
-        objects_.set(position_, category_);
+        category_.setProjectedPercentage(value);
+        adapter_.updateItem(position_, category_);
     }
 }

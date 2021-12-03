@@ -8,16 +8,10 @@ import androidx.fragment.app.DialogFragment;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.io.File;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
-import java.nio.file.StandardWatchEventKinds;
-import java.nio.file.WatchKey;
-import java.nio.file.WatchService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -30,10 +24,10 @@ import edu.illinois.cs465.pixelbyte.ClassStructures.ClassData;
 import edu.illinois.cs465.pixelbyte.ClassList.ClassListAdapter;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    BottomSheetDialogFragment openDialog;
-    private String currentSemester;
-    private List<ClassData> classes; //each elem = class name, letter, number
-    private ClassListAdapter adapter;
+    BottomSheetDialogFragment openDialog_;
+    private String currentSemester_;
+    private List<ClassData> classes_; //each elem = class name, letter, number
+    private ClassListAdapter adapter_;
     List<FileListener> listeners_;
     ClassData inProgress_;
 
@@ -46,7 +40,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         createClassButton.setOnClickListener(this);
 
         //stuff to grab from other screens
-        currentSemester = "Spring 2022";
+        currentSemester_ = "Spring 2022";
+
+        generateClasses();
+        if (classes_.size() == 0) {
+            classes_ = ClassData.createSampleList(this);
+        }
+        createFileListeners();
 
         generateClasses();
         if (classes.size() == 0) {
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             readClasses();
         } catch (Exception e) {
-            classes = ClassData.createSampleList(this);
+            classes_ = ClassData.createSampleList(this);
         }
     }
 
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void readClasses() {
-        classes = new ArrayList<>();
+        classes_ = new ArrayList<>();
 
         try {
             File folder = getFilesDir();
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     Gson gson = new Gson();
                     ClassData cd = gson.fromJson(content, ClassData.class);
-                    classes.add(cd);
+                    classes_.add(cd);
                 }
             }
 
@@ -113,48 +113,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void createClassList() {
         // Create adapter to interpret data
-        getSupportActionBar().setTitle(currentSemester);
+        getSupportActionBar().setTitle(currentSemester_);
 
         //setup listview
         ListView classList = (ListView) findViewById(R.id.classlist);
         TextView noClasses = (TextView) this.findViewById(R.id.noclasses);
 
-        if (classes.size() == 0) {
+        if (classes_.size() == 0) {
             noClasses.setVisibility(View.VISIBLE);
             classList.setVisibility(View.INVISIBLE);
         } else {
             classList.setVisibility(View.VISIBLE);
             noClasses.setVisibility(View.INVISIBLE);
 
-            adapter = new ClassListAdapter(this, classes);
-            classList.setAdapter(adapter);
+            adapter_ = new ClassListAdapter(this, classes_);
+            classList.setAdapter(adapter_);
         }
     }
 
     public void openDialog(BottomSheetCodes code, String bottomSheetName) {
-        if (openDialog != null && openDialog.isVisible()) {
-            openDialog.onDestroyView();
+        if (openDialog_ != null && openDialog_.isVisible()) {
+            openDialog_.onDestroyView();
         }
 
         switch (code) {
             case CreateClass:
-                openDialog = new CreateClass();
+                openDialog_ = new CreateClass();
                 break;
             case FindTemplate:
-                openDialog = new FindTemplate();
+                openDialog_ = new FindTemplate();
                 break;
             case NewTemplatePreview:
-                openDialog = new CreateNewTemplate();
+                openDialog_ = new CreateNewTemplate();
                 break;
             case AddCategory:
-                openDialog = new AddCategory();
+                openDialog_ = new AddCategory();
                 break;
             case PreviewTemplate:
-                openDialog = new PreviewTemplate(bottomSheetName);
+                openDialog_ = new PreviewTemplate(bottomSheetName);
                 break;
         }
 
-        openDialog.show(getSupportFragmentManager(), bottomSheetName);
+        openDialog_.show(getSupportFragmentManager(), bottomSheetName);
     }
 
     public void onClick(View v) {
@@ -170,8 +170,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void finishTemplate() {
         inProgress_.saveData(this);
-        classes.add(inProgress_);
-        adapter.notifyDataSetChanged();
+        classes_.add(inProgress_);
+        adapter_.notifyDataSetChanged();
+    }
+
+    public void openTutoringDialog(String department) {
+        DialogFragment df = new TutoringInformationFragment(department);
+        df.show(getSupportFragmentManager(), "Tutoring Name");
     }
 
 

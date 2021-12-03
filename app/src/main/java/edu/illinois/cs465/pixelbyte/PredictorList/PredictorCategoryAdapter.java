@@ -10,16 +10,19 @@ import android.widget.TextView;
 
 import com.google.android.material.slider.Slider;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import edu.illinois.cs465.pixelbyte.ClassStructures.PredictorCategory;
 import edu.illinois.cs465.pixelbyte.ClassStructures.TemplateCategory;
 import edu.illinois.cs465.pixelbyte.R;
 
-public class PredictorCategoryAdapter extends ArrayAdapter<TemplateCategory> {
-    List<TemplateCategory> data_;
+public class PredictorCategoryAdapter extends ArrayAdapter<PredictorCategory> {
+    List<PredictorCategory> data_;
 
-    public PredictorCategoryAdapter(Context context, List<TemplateCategory> objects) {
+    public PredictorCategoryAdapter(Context context, List<PredictorCategory> objects) {
         super(context, 0, objects);
+
         data_ = objects;
     }
 
@@ -38,7 +41,7 @@ public class PredictorCategoryAdapter extends ArrayAdapter<TemplateCategory> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the item at the given position
-        TemplateCategory category = getItem(position);
+        PredictorCategory category = getItem(position);
 
         // If there isn't a view, don't update it
         if (convertView == null) {
@@ -48,7 +51,7 @@ public class PredictorCategoryAdapter extends ArrayAdapter<TemplateCategory> {
 
         TextView title = convertView.findViewById(R.id.category_name);
         if (title != null) {
-            title.setText(category.name_);
+            title.setText(category.getName());
         }
 
         TextView currentGrade = convertView.findViewById(R.id.current_grade);
@@ -57,15 +60,14 @@ public class PredictorCategoryAdapter extends ArrayAdapter<TemplateCategory> {
             currentGrade.setText(category.getGrade());
         }
         if (predictGrade != null) {
-            predictGrade.setText(category.getGrade());
+            predictGrade.setText(category.getProjection());
         }
 
         EditText numAssignments = convertView.findViewById(R.id.remaining_points);
         Slider slider = convertView.findViewById(R.id.predictedScore);
-        PredictorElementListener listener = new PredictorElementListener(category, predictGrade, numAssignments, slider, position, data_);
 
-        numAssignments.addTextChangedListener(listener);
-        slider.addOnChangeListener(listener);
+        numAssignments.addTextChangedListener(new PredictorElementListener(category, this, position));
+        slider.addOnChangeListener(new PredictorElementListener(category, this, position));
 
         // Return the completed view to render on screen
         return convertView;
@@ -75,4 +77,9 @@ public class PredictorCategoryAdapter extends ArrayAdapter<TemplateCategory> {
     private View getInflatedLayoutForType(int type) {
         return LayoutInflater.from(getContext()).inflate(R.layout.predictor_list_element, null);
     }
+
+    public void updateItem(int position, PredictorCategory newVersion) {
+        data_.set(position, newVersion);
+    }
+
 }

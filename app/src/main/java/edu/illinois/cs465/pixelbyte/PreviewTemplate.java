@@ -20,6 +20,8 @@ public class PreviewTemplate extends BottomSheetDialogFragment {
     String className_;
     List<TemplateCategory> items_;
 
+    public PreviewTemplate() {}
+
     public PreviewTemplate(String name) {
         className_ = name;
     }
@@ -75,12 +77,11 @@ public class PreviewTemplate extends BottomSheetDialogFragment {
                 for (TemplateCategory tc : items_) {
                     m.inProgress_.addCategory(tc);
                 }
+
                 m.finishTemplate();
-                m.openDialog.onDestroyView();
+                m.openDialog_.onDestroyView();
             }
         });
-
-
 
         return view;
     }
