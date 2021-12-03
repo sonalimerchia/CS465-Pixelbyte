@@ -15,7 +15,6 @@ import android.widget.TextView;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class CreateClass extends BottomSheetDialogFragment implements View.OnClickListener {
-    //BottomSheetDialogFragment openDialog;
     TextView currentColor_;
 
     @Override
@@ -71,7 +70,7 @@ public class CreateClass extends BottomSheetDialogFragment implements View.OnCli
 
         String name = ((TextView) this.getView().findViewById(R.id.class_name_input)).getText().toString();
         Spinner selector = (Spinner)(this.getView().findViewById(R.id.department_selector));
-        String department = selector.toString();
+        String department = selector.getSelectedItem().toString();
 
         int colorId = getColorId(currentColor_);
         m.startNewClass(name, getResources().getColor(colorId), department);

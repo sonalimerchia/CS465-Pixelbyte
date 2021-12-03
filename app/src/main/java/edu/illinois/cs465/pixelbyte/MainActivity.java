@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String currentSemester_;
     private List<ClassData> classes_; //each elem = class name, letter, number
     private ClassListAdapter adapter_;
+    ListView classList_;
     List<FileListener> listeners_;
     ClassData inProgress_;
 
@@ -46,14 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (classes_.size() == 0) {
             classes_ = ClassData.createSampleList(this);
         }
-        createFileListeners();
 
-        generateClasses();
-        if (classes.size() == 0) {
-            classes = ClassData.createSampleList(this);
-        }
         createFileListeners();
-
         createClassList();
     }
 
@@ -116,18 +111,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setTitle(currentSemester_);
 
         //setup listview
-        ListView classList = (ListView) findViewById(R.id.classlist);
+        classList_ = (ListView) findViewById(R.id.classlist);
         TextView noClasses = (TextView) this.findViewById(R.id.noclasses);
 
         if (classes_.size() == 0) {
             noClasses.setVisibility(View.VISIBLE);
-            classList.setVisibility(View.INVISIBLE);
+            classList_.setVisibility(View.INVISIBLE);
         } else {
-            classList.setVisibility(View.VISIBLE);
+            classList_.setVisibility(View.VISIBLE);
             noClasses.setVisibility(View.INVISIBLE);
 
             adapter_ = new ClassListAdapter(this, classes_);
-            classList.setAdapter(adapter_);
+            classList_.setAdapter(adapter_);
         }
     }
 
@@ -179,9 +174,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         df.show(getSupportFragmentManager(), "Tutoring Name");
     }
 
-
-    public void openTutoringDialog(String department) {
-        DialogFragment df = new TutoringInformationFragment(department);
-        df.show(getSupportFragmentManager(), "Tutoring Name");
-    }
 }

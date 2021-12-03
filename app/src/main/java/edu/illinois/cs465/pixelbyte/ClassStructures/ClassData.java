@@ -47,6 +47,7 @@ public class ClassData {
     }
 
     public void addCategory(TemplateCategory newCategory) {
+        TemplateCategory copy = new TemplateCategory(newCategory.name_, newCategory.weight_, newCategory.drops_, newCategory.assignments_);
         categories_.add(newCategory);
     }
 
